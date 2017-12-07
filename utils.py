@@ -6,19 +6,6 @@ from requests.auth import AuthBase
 import base64, hashlib, hmac, time, json, requests
 
 
-def products(api_base='https://api-public.sandbox.gdax.com'):
-    """
-    Obtain the list of products (e.g., BTC) from Gdax.
-    
-    :params api_base: the base of the api, either the sandbox or the official one.
-    """
-    response = requests.get(api_base + '/products')
-    # check for invalid api response
-    if response.status_code is not 200:
-        raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
-    return response.json()
-
-
 class GDAXRequestAuth(AuthBase):
     """
     Setting up the Authentication process by extending the AuthBase object.
@@ -56,51 +43,94 @@ class GDAXRequestAuth(AuthBase):
         return request
 
     
-def buy_market(product_id, side, size):
-    auth = GDAXRequestAuth(api_key, api_secret, passphrase)
-    order_data = {
-        'type': 'market',
-        'side': side,
-        'product_id': product_id,
-        'size': size
-    }
-    response = requests.post(api_base + '/orders', data=json.dumps(order_data), auth=auth)
-    if response.status_code is not 200:
-        raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
-    return response.json()
-
-
-def buy_limit(product_id, price, side, size, time_in_force='GTC', cancel_after=None, post_only=None):
-    auth = GDAXRequestAuth(api_key, api_secret, passphrase)
-    order_data = {
-        'type': 'limit',
-        'side': side,
-        'product_id': product_id,
-        'price': price,
-        'size': size,
-        'time_in_force': time_in_force
-    }
-    if 'time_in_force' is 'GTT':
-        order_data['cancel_after'] = cancel_after 
-    if 'time_in_force' not in ['IOC', 'FOK']:
-        order_data['post_only'] = post_only
-    response = requests.post(api_base + '/orders', data=json.dumps(order_data), auth=auth)
-    if response.status_code is not 200:
-        raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
-    return response.json()
-
-
-def order_status(order_id):
+class Trader():
     """
-    To re-confirm the order that we makes went through.
+    Trader object to handle trading.
+    """
     
-    :params order_id: the order id that we made.
-    """
-    order_url = api_base + '/orders/' + order_id
-    response = requests.get(order_url, auth=auth)
-    if response.status_code is not 200:
-        raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
-    return response.json()
+    def __init__(self, api_base, api_key, secret_key, passphrase):
+        """
+        These keys are generated in https://public.sandbox.gdax.com/settings/api.
+        
+        :params api_key: api key
+        :params secret_key: secret key
+        :params: passphrase: passprase
+        """
+        self.api_base = api_base
+        self.api_key = api_key
+        self.secret_key = secret_key
+        self.passphrase = passphrase
+        
+        # create the authentication object
+        self.auth = GDAXRequestAuth(self.api_key, self.secret_key, self.passphrase)
+        
+            
+    def products(self):
+        """
+        Obtain the list of products (e.g., BTC) from Gdax.
+        """
+        response = requests.get(self.api_base + '/products')
+        # check for invalid api response
+        if response.status_code is not 200:
+            raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
+        return response.json()
+    
+    
+    def trade(self, product_id, side, size, price,
+            type_='limit', time_in_force='GTC', stp='dc',
+            cancel_after=None, post_only=None):
+        """
+        Perform trade option in Gdax.
+        
+        :params product_id: currency we want to buy, e.g., 'BTC'
+        :params side: sell or buy
+        :params price: price value
+        :params type_: market or limit
+        :params time_in_force: they type of the time we want
+        :params stp: self-trade prevention type, e.g., 'dc'
+        :params cancel_after: time limit for order
+        :params post_only: flag specifies that the order should only make liquidity,
+                            and will otherwise result in a rejected order.        
+        """
+        order_data = {
+            'product_id': product_id,
+            'side': side,
+            'size': size,
+            'type': type_,
+            'stp' : stp
+        }
+
+        if type_ == 'limit':
+            order_data['price'] = price
+            order_data['time_in_force'] = time_in_force
+            
+            if 'time_in_force' is 'GTT':
+                order_data['cancel_after'] = cancel_after 
+            if 'time_in_force' not in ['IOC', 'FOK']:
+                order_data['post_only'] = post_only        
+                
+        response = requests.post(self.api_base + '/orders', data=json.dumps(order_data), auth=self.auth)
+        print(response.json())
+        if response.status_code is not 200:
+            raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
+        else:    
+            # re-confirm the order to make sure it is not "pending"
+            response = self.order_status(response.json()['id'])
+        
+        return response.json()
+
+
+    def order_status(self, order_id):
+        """
+        To re-confirm the order that we makes went through.
+
+        :params order_id: the order id that we made.
+        """
+        order_url = self.api_base + '/orders/' + order_id
+        response = requests.get(order_url, auth=self.auth)
+        if response.status_code is not 200:
+            raise Exception('Invalid GDAX Status Code: %d' % response.status_code)
+        return response
 
 
 
