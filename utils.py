@@ -4,6 +4,17 @@ Utilities functions to support trading in Gdax.
 
 from requests.auth import AuthBase
 import base64, hashlib, hmac, time, json, requests
+import gdax
+
+class GdaxArmy():
+    """
+    An API object that is built on top of unofficial Gdax python api:
+    https://github.com/danpaquin/gdax-python
+    """
+
+    def __init__(self):
+        self.client = gdax.PublicClient()
+
 
 
 class GDAXRequestAuth(AuthBase):
