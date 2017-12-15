@@ -4,7 +4,22 @@ Utilities functions to support trading in Gdax.
 
 from requests.auth import AuthBase
 import base64, hashlib, hmac, time, json, requests
+
+from datetime import datetime
+import tzlocal
 import gdax
+import pandas as pd
+
+def _unix_timestamp_to_readable(timestamp):
+    """
+    Convert a unix timestamp is readable format
+
+    params timestamp: unix timestamp
+    """
+    local_timezone = tzlocal.get_localzone() # get pytz timezone
+    local_time = datetime.fromtimestamp(timestamp, local_timezone)
+    return local_time.strftime("%Y-%m-%d %H:%M:%S.%f%z (%Z)")    
+
 
 class GdaxArmy():
     """
@@ -14,6 +29,38 @@ class GdaxArmy():
 
     def __init__(self):
         self.client = gdax.PublicClient()
+
+
+    def get_trade_trends(self, currency='LTC-USD', granularity=3600, 
+                        num_buckets=24
+                        ):
+        """
+        Getting the trade trends in a period of time. A period contains num_buckets of buckets. For example, a period can be 24 hours (defined by granularity); this also indicates there will be num_buckets=24 and each bucket has a time interval of an hour. Each bucket contains several information:
+
+        low: lowest price during the bucket interval
+        high: highest price during the bucket interval
+        open: first trade in the bucket interval
+        close: last trade in the bucket interval
+        volume: volume of trading activity during the bucket interval
+
+        :params currency: currency that we are interested in
+        :params granularity: unit is second. Amt of time in a bucket
+        :params num_buckets: number of buckets
+        """
+        trades = self.client.get_product_historic_rates(currency, 
+                                                    granularity=granularity)
+        trades = trades[:num_buckets]
+        trades = trades[::-1] # closest time goes last
+        df = pd.DataFrame(data=trades)
+
+        # convert time to readable
+        df[0] = df[0].apply(_unix_timestamp_to_readable)
+        
+        # assign
+        time_, low_, high_, open_, close_, volume_ = df[0], df[1], df[2], \
+                                                        df[3], df[4], df[5]
+        return time_, low_, high_, open_, close_, volume_
+
 
 
 
