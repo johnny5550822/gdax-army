@@ -38,3 +38,10 @@ Thumbs.db
 
 # Directories
 Data/
+
+# Miscellaneous #
+#################
+*.pyc
+.ipynb_checkpoints/
+
+
