@@ -81,6 +81,20 @@ class GdaxArmy():
                                     product_id=product_id, 
                                     post_only=True, **kwargs)
         return order
+
+
+    def get_fills(self, **kwargs):
+        """
+        Get fills info for a particular order id or product id.
+        """
+        return self.auth_client.get_fills(**kwargs)
+
+
+    def get_order(self, id):
+        """
+        Get the order info for a particular order
+        """
+        return self.auth_client.get_order(id)
        
 
     def get_trade_trends(self, currency='LTC-USD', granularity=3600, 

@@ -1,4 +1,5 @@
 from utils import *
+import time
 
 class TradeController():
     """
@@ -16,34 +17,69 @@ class TradeController():
         self.army.authenticate(api_key=api_key, 
                                 secret_key=secret_key, passphrase=passphrase, 
                                 is_sandbox_url=False)
-        self.orderbook={}
 
-
-    def trade_by_ema_limit(self, granularity=300, 
+    def trade_by_ema_limit(self, 
+                            size=0.01,
+                            granularity=300, 
                             num_buckets=200,
-                            short_term_n=10, 
-                            mid_term_n=50, 
-                            long_term_n=200
+                            term_n=50, 
                             ):
         """
         Trade using exponential moving average (EMA) in a limit fashion. We are assuming doing one trade (cycle) at a time. A cycle is defined as a-buy-a-sell.
         """
-        size = 0.01
-        is_buying_stage = False # flag to indicate if it is in buying stage
 
         # Get current price
         price = self.army.get_currency_price(self.currency)
 
         # Get the cloest ema
-        ema = self._get_closest_ema(granularity, num_buckets,mid_term_n)
+        ema = self._get_closest_ema(granularity, num_buckets, term_n)
 
-        # if there is no traction in orderbook 
-        #if len(self.orderbook):
-        #    pass
-        #if price >= ema:
-            #self.army.buy()      
+        # check if orderbook is empty, for now, just allow one order pair at a time        
+        if price >= ema:
+            order = self.army.buy()      
 
-        # wait until the buy order is filled
+        # wait until buy-order is filled
+        while not self._is_order_filled(id=order['id']):
+            time.sleep(2) # pause for x second
+            break
+
+        # once the buy order is filled, put a sell order
+        order = self._create_sell_order(order)
+
+        # wait until the sell-order is filled
+        while not self._is_order_filled(id=order['id']):
+            time.sleep(2)
+            break
+
+
+
+       
+        
+    def _is_order_filled(self, id):
+        """
+        Check if an order is filled
+
+        :params id: the id of an order
+        """
+        info = self.army.get_order(id)
+        print(info)
+        if info['status'] == 'done':
+            return True
+        else:
+            return False
+
+
+    def _create_sell_order(self, buy_order, gain=0.1):
+        """
+        Create a sell order based on info of a buy_order
+
+        :params gain: the percent gain that is expected to have
+        """
+        price = float(buy_order['price']) * (1 + gain)
+        product_id = buy_order['product_id']
+        size = float(buy_order['size'])
+        order = self.army.sell(price=price, size=size)
+        return order
 
 
     def _get_closest_ema(self, granularity, num_buckets, n):
