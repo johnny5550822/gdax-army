@@ -1,4 +1,5 @@
-from utils import *
+from lib.utils import *
+from lib import GdaxArmy
 import time
 import logging
 
@@ -6,7 +7,7 @@ logger = logging.getLogger(__name__)
 ch = logging.StreamHandler()
 logger.addHandler(ch)
 
-class TradeController():
+class Trader():
     """
     Trade controller (bot) that handles all the trading algorithm.
     """
@@ -59,7 +60,7 @@ class TradeController():
         logger.info("Initial Account Summary:%s" %self.acct_summary)
 
 
-    def trade_by_ema_limit(self):
+    def trade(self):
         """
         Trade using exponential moving average (EMA) in a limit fashion. We are assuming doing one trade (cycle) at a time. A cycle is defined as a-buy-a-sell.
 
@@ -109,13 +110,10 @@ class TradeController():
         # Todo: just simply check price >= ema and decide to buy may be wrong because we don't know if we buy at a very high price (e.gh., the peak), we may have to have a better way to determine if we should excute a buy order. For example, (1) we should determine if the trend of the price is still going up or not (i.e., pass the peak). (2) Or we should let the algorithm to wait from price<=ema to price>=ema, the turning point should be a good price to buy
         logger.info('price:$%s, ema:$%s' %(price,ema))
         if price >= ema:
-            #order = self.army.buy(price=to_decimal_place(price - 0.1),
-            #                      size=self.size, 
-            #                      product_id=self.currency) 
+            order = self.army.buy(price=to_decimal_place(price - 0.1),
+                                  size=self.size, 
+                                  product_id=self.currency) 
             pass
-        order = self.army.buy()
-        logger.info(order)
-        dsadaad
 
         if order and ('message' not in order) and order['status']!='rejected':
             is_success = self._wait_order_completed(order['id'], pause_time,                                    time_limit)
