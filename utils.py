@@ -143,15 +143,28 @@ class GdaxArmy():
         return df.ewm(span=n).mean()
 
 
+#    def get_currency_price(self, currency='LTC-USD'):
+#        """
+#        Return the current price of a currency.
+#
+#        :params currency: the currency for exchange
+#        """
+#        info = self.client.get_product_order_book(currency, level=1)
+#        return float(info['asks'][0][0])
+
     def get_currency_price(self, currency='LTC-USD'):
         """
+        Snapshot information about the last trade (trade id and price), best bid/ask and 24h volume.
+        
         Return the current price of a currency.
-
-        :params currency: the currency for exchange
+        
+        :params currncy: the currency for exchange
         """
-        info = self.client.get_product_order_book(currency, level=1)
-        return float(info['asks'][0][0])
-
+        
+        info = self.client.get_product_ticker(product_id=currency)
+        return float(info['price'])
+    
+    
 
 class GDAXRequestAuth(AuthBase):
     """
