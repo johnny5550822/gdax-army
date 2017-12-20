@@ -33,7 +33,7 @@ class GdaxArmy():
 
 
     def authenticate(self, api_key, secret_key, passphrase, 
-                    is_sandbox_url=True):
+                    interest_currency, is_sandbox_url=True):
         """
         Authenticate the account.
         """
@@ -51,7 +51,8 @@ class GdaxArmy():
         accts = self.auth_client.get_accounts()
         self.auth_client.accts_dict = {}
         for acct in accts:
-            self.auth_client.accts_dict[acct['currency']]=acct
+            if acct['currency'] in interest_currency:
+                self.auth_client.accts_dict[acct['currency']]=acct
 
 
     def get_accts_dict(self):
@@ -92,9 +93,23 @@ class GdaxArmy():
 
     def get_order(self, id):
         """
-        Get the order info for a particular order
+        Get the order info for a particular order.
         """
         return self.auth_client.get_order(id)
+
+
+    def get_orders(self):
+        """
+        Get the list of orders.
+        """
+        return self.auth_client.get_orders()
+
+
+    def cancel_order(self, id):
+        """
+        Cancel an order.
+        """    
+        return self.auth_client.cancel_order(id)
        
 
     def get_trade_trends(self, currency='LTC-USD', granularity=3600, 
@@ -294,6 +309,12 @@ class Trader():
         return response
 
 
+def to_decimal_place(x, decimal_place=2):
+    """
+    Correct the number to some decimal place
+    """
+    decimal = '{0:.%sf}' %decimal_place
+    return float(decimal.format(x))
 
 
 

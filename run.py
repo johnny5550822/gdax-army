@@ -14,7 +14,6 @@ def main():
     api_key=''
     secret_key=''
     passphrase=''
-
     tradeController = TradeController(api_key=api_key,
                                       secret_key=secret_key, 
                                       passphrase=passphrase)
