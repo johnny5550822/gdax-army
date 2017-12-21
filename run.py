@@ -11,9 +11,9 @@ logger = logging.getLogger(__name__)
 
 def main():
     # account info
-    api_key = '872d7f979e967e98e8fecdf3c4fc317e'
-    secret_key = 'FR+1V4Y8hbzHW8IeoPXybxa6AMpYRJm1OuRbA7EaG0OepQq77c/Ol+tFH7FpC/ch6AiGBwxFzImiGRGdbQYszQ=='
-    passphrase = 'do3045sam5qtjne0dw2pdgqfr'
+    api_key = ''
+    secret_key = ''
+    passphrase = ''
 
     # Trader
     trader = Trader(api_key=api_key,

@@ -71,7 +71,10 @@ class Trader():
         logger.info('########## Trade ##########')
 
         # wait until the pattern favor not to buy (so that we can catch the
-        # moment)
+        # moment when it is good to buy in the loop). 
+        while self.buyStrategier.should_buy(option=1):
+            logger.info('Waiting the condition to start trading.')
+            time.sleep(10)  # not overwhelming the api
 
         # loop
         while True:
