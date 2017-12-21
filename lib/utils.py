@@ -3,6 +3,9 @@ Utilities functions to support trading in Gdax.
 """
 from datetime import datetime
 import tzlocal
+import logging
+
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
 
 def unix_timestamp_to_readable(timestamp):
@@ -22,3 +25,23 @@ def to_decimal_place(x, decimal_place=2):
     """
     decimal = '{0:.%sf}' % decimal_place
     return float(decimal.format(x))
+
+
+def setup_logger(name, log_file, level=logging.INFO):
+    """
+    Function setup as many loggers as you want
+    """
+
+    # set FileHandler
+    handler = logging.FileHandler(log_file)        
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
+    logger.addHandler(handler)
+
+    # set StreamHandler so that you can see in terminal
+    ch = logging.StreamHandler()
+    logger.addHandler(ch)
+
+    return logger

@@ -10,7 +10,10 @@ class Strategier():
         self.currency = currency
 
         # exponential moving average parameters
-        self.granularity = granularity  # 300s = 5 min
+        self.granularity = granularity  # e.g., 3600=an hour, some values are 
+                                        # weird (100, etc). We probably
+                                        # use 60 (1 min), 300 (5 min), 
+                                        # 1800(30min), 3600(1 hr)
         self.num_buckets = num_buckets
         self.term_n = term_n  # important parameter to determine how sensitive
                              # and global of the moving average, i.e., the

@@ -1,9 +1,8 @@
 import logging
 from lib import Strategier
+from lib.utils import *
 
-logger = logging.getLogger(__name__)
-ch = logging.StreamHandler()
-logger.addHandler(ch)
+logger = setup_logger(__name__, 'logs/log.log')
 
 
 class SellStrategier(Strategier):
@@ -56,4 +55,5 @@ class SellStrategier(Strategier):
         # log
         logger.info('price:$%s, ema:$%s' % (price, ema))
 
-        return (price < ema) and (price > buy_price)
+        return True
+        #return (price < ema) and (price > buy_price)

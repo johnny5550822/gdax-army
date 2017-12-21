@@ -3,11 +3,6 @@ from lib import Trader
 
 # Global logging setup
 # www.digitalocean.com/community/tutorials/how-to-use-logging-in-python-3
-logging.basicConfig(filename="logs/log.log",
-                    level=logging.INFO,
-                    format="%(asctime)s:%(name)s:%(message)s")
-logger = logging.getLogger(__name__)
-
 
 def main():
     # account info

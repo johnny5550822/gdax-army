@@ -1,9 +1,8 @@
 import logging
 from lib import Strategier
+from lib.utils import *
 
-logger = logging.getLogger(__name__)
-ch = logging.StreamHandler()
-logger.addHandler(ch)
+logger = setup_logger(__name__, 'logs/log.log')
 
 
 class BuyStrategier(Strategier):

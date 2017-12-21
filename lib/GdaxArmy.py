@@ -55,7 +55,7 @@ class GdaxArmy():
         """
         order = self.auth_client.buy(price=price, size=size,
                                      product_id=product_id,
-                                     post_only=True, **kwargs)
+                                     post_only=post_only, **kwargs)
         return order
 
     def sell(self, price=10000, size=0.01, product_id='LTC-USD',
@@ -65,7 +65,7 @@ class GdaxArmy():
         """
         order = self.auth_client.sell(price=price, size=size,
                                       product_id=product_id,
-                                      post_only=True, **kwargs)
+                                      post_only=post_only, **kwargs)
         return order
 
     def get_fills(self, **kwargs):
