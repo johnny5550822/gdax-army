@@ -13,6 +13,8 @@ def main():
     api_key=''
     secret_key=''
     passphrase=''
+
+    # Trader
     trader = Trader(api_key=api_key,
                     secret_key=secret_key, 
                     passphrase=passphrase)
