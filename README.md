@@ -16,3 +16,5 @@ python run.py
 - Try to look for a good design pattern, e.g., facade 
 	- https://www.toptal.com/python/python-design-patterns
 	- https://github.com/faif/python-patterns
+- if you are using subl, please auto format it following PEP-8 standard
+    - https://packagecontrol.io/packages/Python%20PEP8%20Autoformat
