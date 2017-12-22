@@ -18,3 +18,4 @@ python run.py
 	- https://github.com/faif/python-patterns
 - If you are using subl, please auto format it following PEP-8 standard
     - https://packagecontrol.io/packages/Python%20PEP8%20Autoformat
+- When you write tests in test, please follow the convention in sampleUnitTest.py. Also, please name the test python file accordingly. 

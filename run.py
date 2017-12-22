@@ -4,11 +4,12 @@ from lib import Trader
 # Global logging setup
 # www.digitalocean.com/community/tutorials/how-to-use-logging-in-python-3
 
+
 def main():
     # account info
-    api_key = '4247ce199cba7a154cf4013de1e4cd6c'
-    secret_key = 'YAJGFXxT/5YSqK5cf1ny52rEEoEXv+PeNcgcBXf2tDI7DHBpNH2t02bbKn1wVRf/SmqJ0nOnHx+KkvjOcpaY/w=='
-    passphrase = '4nqonu889hdzi86kydgou323xr'
+    api_key = '097f67c2c1cb3452f33fcdf143361142'
+    secret_key = 'qQvU8RjCksVPF6KtuKMFY+bcgeaSeUlRpLvEdV5L4esiZxwWTVIszuCqXiuYbMVIfWl/NmE1zWqwiFT7xLbz3w=='
+    passphrase = 'kznsevl3lgvx3dpk995yzxgvi'
 
     # Trader
     trader = Trader(api_key=api_key,

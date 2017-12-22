@@ -10,9 +10,11 @@ class SellStrategier(Strategier):
     Provide algorithms and rules to determine if we should sell. 
     """
 
-    def __init__(self, army, currency, granularity, num_buckets, term_n):
+    def __init__(self, army, currency, granularity, num_buckets, term_n,
+                 macd_short_n, macd_long_n
+                 ):
         Strategier.__init__(self, army, currency, granularity,
-                            num_buckets, term_n)
+                            num_buckets, term_n, macd_short_n, macd_long_n)
 
     def should_sell(self, buy_order, option=1):
         """
@@ -20,6 +22,9 @@ class SellStrategier(Strategier):
         """
         if option == 1:
             return self._determine_by_ema(buy_order)
+        elif option == 2:
+            return self._determine_by_macd(buy_order)
+
 
         return False
 
@@ -49,11 +54,30 @@ class SellStrategier(Strategier):
         price = self.army.get_currency_price(self.currency)
 
         # Get the cloest ema
-        ema = self._get_closest_ema(self.granularity, self.num_buckets,
-                                    self.term_n)
+        ema = self._get_cloest_ema(self.term_n)
 
         # log
-        logger.info('price:$%s, ema:$%s' % (price, ema))
+        logger.info('Simple EMA: price:$%s, ema:$%s' % (price, ema))
 
-        #return True
+        # return True
         return (price < ema) and (price > buy_price)
+
+    def _determine_by_macd(self, buy_order):
+        """
+        Determine if we should sell based on MACD
+        """
+        # Buy price
+        buy_price = float(buy_order['price'])
+
+        # Get current price
+        price = self.army.get_currency_price(self.currency)
+
+        # Get the cloest ema
+        short_macd_ema, long_macd_ema = self._get_macd_ema()
+
+        # log
+        logger.info('MACD: short ema:$%s, long ema:$%s' %
+                    (short_macd_ema, long_macd_ema))
+
+        # return True
+        return (short_macd_ema < long_macd_ema) and (price > buy_price)

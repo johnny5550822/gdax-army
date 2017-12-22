@@ -19,7 +19,9 @@ class Trader():
                  interest_currency=['LTC', 'USD'],
                  size=0.01, currency='LTC-USD',
                  value_limit=470, percent_remain_limit=0.90, size_limit=0.1,
-                 granularity=300, num_buckets=200, term_n=60
+                 granularity=300, num_buckets=200, term_n=60,
+                 macd_short_n=12, macd_long_n=26,
+                 trade_option=1,
                  ):
         # logger
         logger.info('')
@@ -53,9 +55,16 @@ class Trader():
 
         # strategiers
         self.buyStrategier = BuyStrategier(self.army, currency, granularity,
-                                           num_buckets, term_n)
+                                           num_buckets, term_n, macd_short_n,
+                                           macd_long_n
+                                           )
         self.sellStrategier = SellStrategier(self.army, currency, granularity,
-                                             num_buckets, term_n)
+                                            num_buckets, term_n, macd_short_n,
+                                            macd_long_n)
+
+        # trade options
+        self.trade_option = trade_option
+        logger.info('Trade Option:%s' %self.trade_option)
 
         # log the configuration
         logger.info("Initial Account Summary:%s" % self.acct_summary)
@@ -96,7 +105,8 @@ class Trader():
                     while not is_bought:
                         time.sleep(1)  # not overwhelming the api
                         is_bought, buy_order = self._execute_buy_order(
-                            time_limit=60)
+                            time_limit=60, 
+                            trade_option=self.trade_option)
                         logger.info('Bought?:%s' % is_bought)
                     logger.info('Bought order:%s' % buy_order)
                     self._log_trade(buy_order)
@@ -106,7 +116,8 @@ class Trader():
                         time.sleep(1)  # not overwhelming the api
                         is_sold, sell_order = self._execute_sell_order(
                             order=buy_order,
-                            time_limit=60)
+                            time_limit=60,
+                            trade_option=self.trade_option)
                         logger.info('Sold?:%s' % is_sold)
                     logger.info('Sold order:%s' % sell_order)
                     self._log_trade(sell_order)
@@ -141,14 +152,15 @@ class Trader():
             product_id=self.currency, level=2)
         return(float(order_book[order_type][pos][0]))
 
-    def _execute_buy_order(self, pause_time=2, time_limit=600):
+    def _execute_buy_order(self, pause_time=2, time_limit=600, 
+                           trade_option=1):
         """
         Stragegy for a buying order.
         """
         logger.info('Executing buy order ...... ')
 
         # check if should sell.
-        if self.buyStrategier.should_buy(option=1):
+        if self.buyStrategier.should_buy(option=trade_option):
             price = self._determine_order_price(order_type='bids')
             order = self.army.buy(price=to_decimal_place(price),
                                   size=self.size,
@@ -161,7 +173,8 @@ class Trader():
                 return is_bought, order
         return False, None
 
-    def _execute_sell_order(self, order, pause_time=2, time_limit=600):
+    def _execute_sell_order(self, order, pause_time=2, time_limit=600,
+                            trade_option=1):
         """
         Stragegy for a selling order. If after the time limit and the LTC is 
         not sold, then check if the current price is high than the buy-in 
@@ -171,7 +184,8 @@ class Trader():
         logger.info('Executing sell order ...... ')
 
         # check if should sell
-        if self.sellStrategier.should_sell(buy_order=order, option=1):
+        if self.sellStrategier.should_sell(buy_order=order, 
+                                            option=trade_option):
             price = self._determine_order_price(order_type='asks')
             sell_order = self.army.sell(price=to_decimal_place(price),
                                         size=self.size,
