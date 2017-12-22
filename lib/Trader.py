@@ -17,7 +17,7 @@ class Trader():
 
     def __init__(self, api_key, secret_key, passphrase,
                  interest_currency=['LTC', 'USD'],
-                 size=0.01, currency='LTC-USD', price_delta=0.05,
+                 size=0.01, currency='LTC-USD',
                  value_limit=470, percent_remain_limit=0.90, size_limit=0.1,
                  granularity=300, num_buckets=200, term_n=60
                  ):
@@ -44,7 +44,6 @@ class Trader():
         # for buy and sell
         self.size = size  # coin size per trade
         self.currency = currency
-        self.price_delta = price_delta  # the differential difference in price
 
         # initial check parameter, for safety purpose
         self.value_limit = value_limit  # total amt of value in account limit
@@ -77,6 +76,7 @@ class Trader():
         while self.buyStrategier.should_buy(option=1):
             logger.info('Waiting price<ema to start trading cycle.')
             time.sleep(10)  # not overwhelming the api
+            break
 
         # loop
         while True:
@@ -92,7 +92,7 @@ class Trader():
                     is_bought = False
                     is_sold = False
 
-                    excute buy stragegy
+                    # excute buy stragegy
                     while not is_bought:
                         time.sleep(1)  # not overwhelming the api
                         is_bought, buy_order = self._execute_buy_order(
@@ -112,7 +112,7 @@ class Trader():
                     self._log_trade(sell_order)
 
             except Exception, e:
-                logger.info("Exception:%s" %e)
+                logger.info("Exception:%s" % e)
 
     def _clean_all_orders(self):
         """
@@ -130,6 +130,17 @@ class Trader():
             for order in orders:
                 self.army.cancel_order(order['id'])
 
+    def _determine_order_price(self, pos=3, order_type='bids'):
+        """
+        Determine the limited order price. To be more specifiy, the order book will be obtained and the pos_th order price will be picked to be the price. This can avoid choosing an arbitrary price delta (differential difference) that is not sure how far it is from the current trade price.
+
+        :params pos: position in the order book
+        :params order_type: 'bids' for buy and 'asks' for sell
+        """
+        order_book = self.army.get_product_order_book(
+            product_id=self.currency, level=2)
+        return(float(order_book[order_type][pos][0]))
+
     def _execute_buy_order(self, pause_time=2, time_limit=600):
         """
         Stragegy for a buying order.
@@ -138,8 +149,7 @@ class Trader():
 
         # check if should sell.
         if self.buyStrategier.should_buy(option=1):
-            price = self.army.get_currency_price(self.currency) - \
-                self.price_delta
+            price = self._determine_order_price(order_type='bids')
             order = self.army.buy(price=to_decimal_place(price),
                                   size=self.size,
                                   product_id=self.currency)
@@ -162,8 +172,7 @@ class Trader():
 
         # check if should sell
         if self.sellStrategier.should_sell(buy_order=order, option=1):
-            price = self.army.get_currency_price(self.currency) + \
-                self.price_delta
+            price = self._determine_order_price(order_type='asks')
             sell_order = self.army.sell(price=to_decimal_place(price),
                                         size=self.size,
                                         product_id=self.currency)

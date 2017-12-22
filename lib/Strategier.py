@@ -29,7 +29,33 @@ class Strategier():
                                                  num_buckets=num_buckets)
 
         # calculate the EMA and obtain the last ema
-        ema = self.army.get_exponential_moving_average(df=close_,
+        ema = self._get_exponential_moving_average(df=close_,
                                                        n=n)
         ema = ema.iloc[-1]
         return ema
+
+    def _get_simple_moving_average(self, df, n=10):
+        """
+        return the simple moving average.
+
+        :params df: dataframe or series with one column
+        :params n: the size of the moving window (number or periods
+                        involved)
+                        10-20 short-term trends
+                        50 mid-term trends
+                        200 long-term trends
+        """
+        return df.rolling(n).mean()
+
+    def _get_exponential_moving_average(self, df, n=10):
+        """
+        return the n-day exponential moving average
+
+        :params df: dataframe or series with one column
+        :params n: the size of the moving window (number or periods
+                        involved)
+                        10-20 short-term trends
+                        50 mid-term trends
+                        200 long-term trends        
+        """
+        return df.ewm(span=n).mean()

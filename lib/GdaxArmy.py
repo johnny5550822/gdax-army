@@ -123,32 +123,6 @@ class GdaxArmy():
         mean_ = (low_ + high_) / 2
         return time_, low_, high_, mean_, open_, close_, volume_
 
-    def get_simple_moving_average(self, df, n=10):
-        """
-        return the simple moving average.
-
-        :params df: dataframe or series with one column
-        :params n: the size of the moving window (number or periods
-                        involved)
-                        10-20 short-term trends
-                        50 mid-term trends
-                        200 long-term trends
-        """
-        return df.rolling(n).mean()
-
-    def get_exponential_moving_average(self, df, n=10):
-        """
-        return the n-day exponential moving average
-
-        :params df: dataframe or series with one column
-        :params n: the size of the moving window (number or periods
-                        involved)
-                        10-20 short-term trends
-                        50 mid-term trends
-                        200 long-term trends        
-        """
-        return df.ewm(span=n).mean()
-
     def get_currency_price(self, currency='LTC-USD'):
         """
         Return the current price of a currency.
@@ -157,3 +131,17 @@ class GdaxArmy():
         """
         info = self.client.get_product_order_book(currency, level=1)
         return float(info['asks'][0][0])
+
+    def get_product_trades(self, product_id='LTC-USD'):
+        """
+        Get the done trades for a particular product.
+        """
+        return self.client.get_product_trades(product_id=product_id)
+
+    def get_product_order_book(self, product_id='LTC-USD', level=2):
+        """
+        Get the current existing placed order (but not yet trade).
+        """
+        return self.client.get_product_order_book(product_id=product_id,
+                                                  level=level
+                                                  )

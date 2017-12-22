@@ -55,5 +55,5 @@ class SellStrategier(Strategier):
         # log
         logger.info('price:$%s, ema:$%s' % (price, ema))
 
-        return True
-        #return (price < ema) and (price > buy_price)
+        #return True
+        return (price < ema) and (price > buy_price)
