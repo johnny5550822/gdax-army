@@ -3,11 +3,15 @@ from lib import GdaxArmy, BuyStrategier, SellStrategier
 import time
 import logging
 
+# timestamp
+time_str = str(time.asctime(time.localtime(time.time()))).replace(' ', '_')
+
 # general logger
-logger = setup_logger(__name__, 'logs/log.log')
+logger = setup_logger(__name__, 'logs/%slog.log' % time_str)
 
 # deal logger that only only log the successful trade
-trade_logger = setup_logger(__name__ + '_trade', 'logs/trade.log')
+trade_logger = setup_logger(__name__ + '_trade',
+                            'logs/%strade.log' % time_str)
 
 
 class Trader():
