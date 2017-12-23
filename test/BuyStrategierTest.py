@@ -17,9 +17,9 @@ class BuyStrategierTest(unittest.TestCase):
         # self.gen_stubs()
 
         # Please hide if not in testing
-        api_key = '097f67c2c1cb3452f33fcdf143361142'
-        secret_key = 'qQvU8RjCksVPF6KtuKMFY+bcgeaSeUlRpLvEdV5L4esiZxwWTVIszuCqXiuYbMVIfWl/NmE1zWqwiFT7xLbz3w=='
-        passphrase = 'kznsevl3lgvx3dpk995yzxgvi'
+        api_key = ''
+        secret_key = ''
+        passphrase = ''
 
         # parameters
         interest_currency = ['LTC', 'USD']
