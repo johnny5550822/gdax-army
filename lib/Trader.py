@@ -90,7 +90,6 @@ class Trader():
         while self.buyStrategier.should_buy(option=self.trade_option):
             logger.info('Waiting price<ema to start trading cycle.')
             time.sleep(10)  # not overwhelming the api
-            break
 
         # loop
         while True:
