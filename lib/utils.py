@@ -22,6 +22,8 @@ def unix_timestamp_to_readable(timestamp):
 def to_decimal_place(x, decimal_place=2):
     """
     Correct the number to some decimal place
+
+    :params decimal_Place: decimal place I want to pick
     """
     decimal = '{0:.%sf}' % decimal_place
     return float(decimal.format(x))
@@ -30,6 +32,9 @@ def to_decimal_place(x, decimal_place=2):
 def setup_logger(name, log_file, level=logging.INFO):
     """
     Function setup as many loggers as you want
+
+    :params log_file: log file location
+    :params level: logging level
     """
 
     # set FileHandler

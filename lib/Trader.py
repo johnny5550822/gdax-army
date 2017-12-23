@@ -25,7 +25,9 @@ class Trader():
                  ):
         # logger
         logger.info('')
-        logger.info('---------------Trade controller---------------')
+        logger.info('---------------New trade---------------')
+        trade_logger.info('')
+        trade_logger.info('---------------New trade---------------')
 
         # api key
         self.api_key = api_key
@@ -44,14 +46,13 @@ class Trader():
         self.acct_summary = self._get_acct_summary()
 
         # for buy and sell
-        self.size = size  # coin size per trade
+        self.size = size
         self.currency = currency
 
         # initial check parameter, for safety purpose
-        self.value_limit = value_limit  # total amt of value in account limit
-        self.percent_remain_limit = percent_remain_limit  # percentage of
-        # value remained limit
-        self.size_limit = size_limit  # coin size limit
+        self.value_limit = value_limit
+        self.percent_remain_limit = percent_remain_limit
+        self.size_limit = size_limit
 
         # strategiers
         self.buyStrategier = BuyStrategier(self.army, currency, granularity,
@@ -59,12 +60,12 @@ class Trader():
                                            macd_long_n
                                            )
         self.sellStrategier = SellStrategier(self.army, currency, granularity,
-                                            num_buckets, term_n, macd_short_n,
-                                            macd_long_n)
+                                             num_buckets, term_n,
+                                             macd_short_n, macd_long_n)
 
         # trade options
         self.trade_option = trade_option
-        logger.info('Trade Option:%s' %self.trade_option)
+        logger.info('Trade Option:%s' % self.trade_option)
 
         # log the configuration
         logger.info("Initial Account Summary:%s" % self.acct_summary)
@@ -82,7 +83,7 @@ class Trader():
 
         # wait until the pattern favor not to buy (so that we can catch the
         # moment when it is good to buy in the loop).
-        while self.buyStrategier.should_buy(option=1):
+        while self.buyStrategier.should_buy(option=self.trade_option):
             logger.info('Waiting price<ema to start trading cycle.')
             time.sleep(10)  # not overwhelming the api
             break
@@ -105,7 +106,7 @@ class Trader():
                     while not is_bought:
                         time.sleep(1)  # not overwhelming the api
                         is_bought, buy_order = self._execute_buy_order(
-                            time_limit=60, 
+                            time_limit=60,
                             trade_option=self.trade_option)
                         logger.info('Bought?:%s' % is_bought)
                     logger.info('Bought order:%s' % buy_order)
@@ -152,10 +153,14 @@ class Trader():
             product_id=self.currency, level=2)
         return(float(order_book[order_type][pos][0]))
 
-    def _execute_buy_order(self, pause_time=2, time_limit=600, 
+    def _execute_buy_order(self, pause_time=2, time_limit=600,
                            trade_option=1):
         """
         Stragegy for a buying order.
+
+        :params: pause_time: time to wait to call the API again
+        :params: time_limit: how much time we wait for the excution
+        :params: trade strategy option
         """
         logger.info('Executing buy order ...... ')
 
@@ -180,12 +185,17 @@ class Trader():
         not sold, then check if the current price is high than the buy-in 
         price, if so, sell the LTC at market prize (become a takes that is 
         being charged), else keep the LTC for now (TODO: LTC may accumulate)
+
+        :order: buy order (which has been executed) info
+        :params: pause_time: time to wait to call the API again
+        :params: time_limit: how much time we wait for the excution
+        :params: trade strategy option
         """
         logger.info('Executing sell order ...... ')
 
         # check if should sell
-        if self.sellStrategier.should_sell(buy_order=order, 
-                                            option=trade_option):
+        if self.sellStrategier.should_sell(buy_order=order,
+                                           option=trade_option):
             price = self._determine_order_price(order_type='asks')
             sell_order = self.army.sell(price=to_decimal_place(price),
                                         size=self.size,
@@ -249,17 +259,23 @@ class Trader():
     def _is_order_placed(self, order):
         """
         Check if the order is placed successfully.
+
+        :params order: the order
         """
         return ('message' not in order) and order['status'] != 'rejected'
 
     def _log_trade(self, order):
         """
         Log a trade record.
+
+        :params order: the order
         """
-        trade_logger.info('%s\t%s\t%s\t%s' % (order['product_id'],
-                                              order['side'],
-                                              order['price'],
-                                              order['size']))
+        trade_logger.info('trade_option%s\t%s\t%s\t%s\t%s'
+                          % (self.trade_option,
+                             order['product_id'],
+                             order['side'],
+                             order['price'],
+                             order['size']))
 
     def _pass_initial_check(self):
         """
