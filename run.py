@@ -7,9 +7,9 @@ from lib import Trader
 
 def main():
     # account info
-    api_key = ''
-    secret_key = ''
-    passphrase = ''
+    api_key = '28572369dacb448565d43c7610ec8749'
+    secret_key = 'lRBkKV8jyNwB1p9VNkDNPTeMAy+8dBxU2tW7hh90dFrzto3gsJFF/YFO7sdjalnxousBPSp72NE7rwMJIwDm7w=='
+    passphrase = 'm2g1mfnjp7bfx5m755qaor'
 
     # currency and coin size
     interest_currency = ['LTC', 'USD']  # interested currency
@@ -36,7 +36,7 @@ def main():
     macd_long_n = 26  # default
 
     # trade option
-    trade_option = 1
+    trade_option = 2
 
     # Trader
     trader = Trader(api_key=api_key,
