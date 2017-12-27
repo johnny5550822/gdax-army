@@ -103,26 +103,32 @@ class Trader():
 
                     # excute buy stragegy
                     while not is_bought:
-                        time.sleep(30)  # not overwhelming the api
-                        is_bought, buy_order = self._execute_buy_order(
-                            time_limit=30,
-                            trade_option=self.trade_option)
-                        if not is_bought:
-                            self._clean_an_order(buy_order)
-                        self.logger.info('Bought?:%s' % is_bought)
+                        try:
+                            time.sleep(30)  # not overwhelming the api
+                            is_bought, buy_order = self._execute_buy_order(
+                                time_limit=30,
+                                trade_option=self.trade_option)
+                            if not is_bought:
+                                self._clean_an_order(buy_order)
+                            self.logger.info('Bought?:%s' % is_bought)
+                        except Exception, e:
+                            self.logger.info("Exception:%s" % e)
                     self.logger.info('Bought order:%s' % buy_order)
                     self._log_trade(buy_order)
 
                     # excute sell stragegy
                     while not is_sold:
-                        time.sleep(30)  # not overwhelming the api
-                        is_sold, sell_order = self._execute_sell_order(
-                            order=buy_order,
-                            time_limit=30,
-                            trade_option=self.trade_option)
-                        if not is_sold:
-                            self._clean_an_order(sell_order)
-                        self.logger.info('Sold?:%s' % is_sold)
+                        try:
+                            time.sleep(30)  # not overwhelming the api
+                            is_sold, sell_order = self._execute_sell_order(
+                                order=buy_order,
+                                time_limit=30,
+                                trade_option=self.trade_option)
+                            if not is_sold:
+                                self._clean_an_order(sell_order)
+                            self.logger.info('Sold?:%s' % is_sold)
+                        except Exception, e:
+                            self.logger.info("Exception:%s" % e)
                     self.logger.info('Sold order:%s' % sell_order)
                     self._log_trade(sell_order)
 
