@@ -5,9 +5,7 @@ from datetime import datetime
 import tzlocal
 import logging
 import time
-from pytz import timezone
-
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+from pytz import timezone, utc
 
 
 def unix_timestamp_to_readable(timestamp):
@@ -38,9 +36,14 @@ def setup_logger(name, log_file, level=logging.INFO):
     :params log_file: log file location
     :params level: logging level
     """
+    # Set timezone converter
+    logging.Formatter.converter = _customTime
+
+    # set formmater
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
     # set FileHandler
-    handler = logging.FileHandler(log_file)        
+    handler = logging.FileHandler(log_file)
     handler.setFormatter(formatter)
 
     logger = logging.getLogger(name)
@@ -52,6 +55,13 @@ def setup_logger(name, log_file, level=logging.INFO):
     logger.addHandler(ch)
 
     return logger
+
+def _customTime(*args):
+    utc_dt = utc.localize(datetime.utcnow())
+    my_tz = timezone("America/Los_Angeles")
+    converted = utc_dt.astimezone(my_tz)
+    return converted.timetuple()
+
 
 def get_current_time():
     """
