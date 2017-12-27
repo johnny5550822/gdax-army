@@ -85,7 +85,7 @@ class Trader():
         # moment when it is good to buy in the loop).
         while self.buyStrategier.should_buy(option=self.trade_option):
             self.logger.info('Waiting price<ema to start trading cycle.')
-            time.sleep(60)  # not overwhelming the api
+            time.sleep(60)
 
         # loop
         while True:

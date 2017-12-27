@@ -7,9 +7,9 @@ from lib import Trader
 
 def main():
     # account info
-    api_key = '03c1c0573c80175f1b102b58e4e6914d'
-    secret_key = 'KUhIQcbPNK+X+Lj44VEUcO1kTxQHuI96QbC6L9n3XNSzI9pdO1sSBKoYBgOk3+XESYl/xGcphhG4ZuhwCZ9X2w=='
-    passphrase = 'upliordo8g8kqf7kesl9pb9'
+    api_key = 'ae516cd16c6adf1972ffe64f224438b7'
+    secret_key = 'kWhPPB1cdR5vmpnO5yW3qFiVCdmS1oijiYiRcT2bjib/cL/tU/zqrNzgwiTf6LYe4+I2pooQH32idacsZR3dMg=='
+    passphrase = 'aayg7crkpv5s4rc3aoa9py14i'
 
     # currency and coin size
     interest_currency = ['LTC', 'USD']  # interested currency
