@@ -89,7 +89,8 @@ class Trader():
         # moment when it is good to buy in the loop).
         while self.buyStrategier.should_buy(option=self.trade_option):
             logger.info('Waiting price<ema to start trading cycle.')
-            time.sleep(10)  # not overwhelming the api
+            time.sleep(2)  # not overwhelming the api
+            break
 
         # loop
         while True:
@@ -109,8 +110,10 @@ class Trader():
                     while not is_bought:
                         time.sleep(1)  # not overwhelming the api
                         is_bought, buy_order = self._execute_buy_order(
-                            time_limit=60,
+                            time_limit=2,
                             trade_option=self.trade_option)
+                        if not is_bought:
+                            self._clean_an_order(buy_order)
                         logger.info('Bought?:%s' % is_bought)
                     logger.info('Bought order:%s' % buy_order)
                     self._log_trade(buy_order)
@@ -122,6 +125,8 @@ class Trader():
                             order=buy_order,
                             time_limit=60,
                             trade_option=self.trade_option)
+                        if not is_sold:
+                            self._clean_an_order(sell_order)
                         logger.info('Sold?:%s' % is_sold)
                     logger.info('Sold order:%s' % sell_order)
                     self._log_trade(sell_order)
@@ -144,6 +149,14 @@ class Trader():
         if orders:
             for order in orders:
                 self.army.cancel_order(order['id'])
+
+    def _clean_an_order(self, order):
+        """
+        Clean a placed order.
+        """
+        if order is not None and order['id'] is not none:
+            logger.info('Cancel a placed order...')
+            self.army.cancel_order(order['id'])
 
     def _determine_order_price(self, pos=3, order_type='bids'):
         """
