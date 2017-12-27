@@ -4,10 +4,10 @@ import time
 import logging
 
 # timestamp
-#time_str = str(time.asctime(time.localtime(time.time()))).replace(' ', '_')
+time_str = str(time.asctime(time.localtime(time.time()))).replace(' ', '_')
 
 # general logger
-logger = setup_logger(__name__, 'logs/log.log')
+logger = setup_logger(__name__, 'logs/%s_log.log' % time_str)
 
 # deal logger that only only log the successful trade
 trade_logger = setup_logger(__name__ + '_trade',
@@ -61,11 +61,12 @@ class Trader():
         # strategiers
         self.buyStrategier = BuyStrategier(self.army, currency, granularity,
                                            num_buckets, term_n, macd_short_n,
-                                           macd_long_n
+                                           macd_long_n, time_str
                                            )
         self.sellStrategier = SellStrategier(self.army, currency, granularity,
                                              num_buckets, term_n,
-                                             macd_short_n, macd_long_n)
+                                             macd_short_n, macd_long_n, 
+                                             time_str)
 
         # trade options
         self.trade_option = trade_option

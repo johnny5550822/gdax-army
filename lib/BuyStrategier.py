@@ -2,8 +2,6 @@ import logging
 from lib import Strategier
 from lib.utils import *
 
-logger = setup_logger(__name__, 'logs/log.log')
-
 
 class BuyStrategier(Strategier):
     """
@@ -11,10 +9,11 @@ class BuyStrategier(Strategier):
     """
 
     def __init__(self, army, currency, granularity, num_buckets, term_n,
-                 macd_short_n, macd_long_n
+                 macd_short_n, macd_long_n, time_str
                  ):
         Strategier.__init__(self, army, currency, granularity,
-                            num_buckets, term_n, macd_short_n, macd_long_n)
+                            num_buckets, term_n, macd_short_n, macd_long_n,
+                            time_str)
 
     def should_buy(self, option=1):
         """
@@ -39,7 +38,7 @@ class BuyStrategier(Strategier):
         ema = self._get_cloest_ema(self.term_n)
 
         # log
-        logger.info('Simple EMA: price:$%s, ema:$%s' % (price, ema))
+        self.logger.info('Simple EMA: price:$%s, ema:$%s' % (price, ema))
 
         # Todo: just simply check price >= ema and decide to buy may be wrong
         # because we don't know if we buy at a very high price (e.gh., the
@@ -58,7 +57,7 @@ class BuyStrategier(Strategier):
         short_macd_ema, long_macd_ema = self._get_macd_ema()
 
         # log
-        logger.info('MACD: short ema:$%s, long ema:$%s' %
-                    (short_macd_ema, long_macd_ema))
+        self.logger.info('MACD: short ema:$%s, long ema:$%s' %
+                         (short_macd_ema, long_macd_ema))
 
         return (short_macd_ema >= long_macd_ema)

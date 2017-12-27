@@ -11,10 +11,11 @@ class SellStrategier(Strategier):
     """
 
     def __init__(self, army, currency, granularity, num_buckets, term_n,
-                 macd_short_n, macd_long_n
+                 macd_short_n, macd_long_n, time_str
                  ):
         Strategier.__init__(self, army, currency, granularity,
-                            num_buckets, term_n, macd_short_n, macd_long_n)
+                            num_buckets, term_n, macd_short_n, macd_long_n,
+                            time_str)
 
     def should_sell(self, buy_order, option=1):
         """
@@ -24,7 +25,6 @@ class SellStrategier(Strategier):
             return self._determine_by_ema(buy_order)
         elif option == 2:
             return self._determine_by_macd(buy_order)
-
 
         return False
 
@@ -57,7 +57,7 @@ class SellStrategier(Strategier):
         ema = self._get_cloest_ema(self.term_n)
 
         # log
-        logger.info('Simple EMA: price:$%s, ema:$%s' % (price, ema))
+        self.logger.info('Simple EMA: price:$%s, ema:$%s' % (price, ema))
 
         # return True
         return (price < ema) and (price > buy_price)
@@ -76,8 +76,8 @@ class SellStrategier(Strategier):
         short_macd_ema, long_macd_ema = self._get_macd_ema()
 
         # log
-        logger.info('MACD: short ema:$%s, long ema:$%s' %
-                    (short_macd_ema, long_macd_ema))
+        self.logger.info('MACD: short ema:$%s, long ema:$%s' %
+                         (short_macd_ema, long_macd_ema))
 
         # return True
         return (short_macd_ema < long_macd_ema) and (price > buy_price)
