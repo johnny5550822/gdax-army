@@ -1,6 +1,5 @@
 from lib.utils import *
 from lib import GdaxArmy, BuyStrategier, SellStrategier
-import time
 import logging
 
 
@@ -18,8 +17,7 @@ class Trader():
                  trade_option=1,
                  ):
         # setup logger
-        time_str = str(time.asctime(time.localtime(time.time()))
-                       ).replace(' ', '_')
+        time_str = str(get_current_time()).replace(' ', '_')
         self.logger = setup_logger(__name__, 'logs/%s_log.log' % time_str)
         self.trade_logger = setup_logger(__name__ + '_trade',
                                          'logs/%s_trade.log' % time_str)
@@ -87,8 +85,7 @@ class Trader():
         # moment when it is good to buy in the loop).
         while self.buyStrategier.should_buy(option=self.trade_option):
             self.logger.info('Waiting price<ema to start trading cycle.')
-            time.sleep(2)  # not overwhelming the api
-            break
+            time.sleep(60)  # not overwhelming the api
 
         # loop
         while True:
@@ -106,9 +103,9 @@ class Trader():
 
                     # excute buy stragegy
                     while not is_bought:
-                        time.sleep(1)  # not overwhelming the api
+                        time.sleep(4)  # not overwhelming the api
                         is_bought, buy_order = self._execute_buy_order(
-                            time_limit=2,
+                            time_limit=30,
                             trade_option=self.trade_option)
                         if not is_bought:
                             self._clean_an_order(buy_order)
@@ -118,10 +115,10 @@ class Trader():
 
                     # excute sell stragegy
                     while not is_sold:
-                        time.sleep(1)  # not overwhelming the api
+                        time.sleep(4)  # not overwhelming the api
                         is_sold, sell_order = self._execute_sell_order(
                             order=buy_order,
-                            time_limit=60,
+                            time_limit=30,
                             trade_option=self.trade_option)
                         if not is_sold:
                             self._clean_an_order(sell_order)
@@ -334,7 +331,7 @@ class Trader():
             total += summary[coin]['price'] * summary[coin]['size']
         return total
 
-    def _wait_order_complete(self, id, pause_time=2, time_limit=600):
+    def _wait_order_complete(self, id, pause_time=4, time_limit=600):
         """
         Wait an order to be completed within a time limit
 
@@ -342,7 +339,7 @@ class Trader():
         :params time_limit: maximum time(2) to wait
         """
         while not self._is_order_filled(id=id):
-            if (time_limit % 20 == 0):
+            if (time_limit % 10 == 0):
                 self.logger.info(
                     'Order complete remaining time:%s' % time_limit)
 

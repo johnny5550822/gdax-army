@@ -4,6 +4,7 @@ Utilities functions to support trading in Gdax.
 from datetime import datetime
 import tzlocal
 import logging
+import time
 
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
@@ -50,3 +51,9 @@ def setup_logger(name, log_file, level=logging.INFO):
     logger.addHandler(ch)
 
     return logger
+
+def get_current_time():
+    """
+    Get current time.
+    """
+    return time.asctime(time.localtime(time.time()))
