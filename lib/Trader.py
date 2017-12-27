@@ -337,7 +337,7 @@ class Trader():
             total += summary[coin]['price'] * summary[coin]['size']
         return total
 
-    def _wait_order_complete(self, id, pause_time=4, time_limit=600):
+    def _wait_order_complete(self, id, pause_time=5, time_limit=600):
         """
         Wait an order to be completed within a time limit
 
