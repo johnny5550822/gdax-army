@@ -152,7 +152,7 @@ class Trader():
         """
         Clean a placed order.
         """
-        if order is not None and order['id'] is not none:
+        if order is not None and order['id'] is not None:
             self.logger.info('Cancel a placed order...')
             self.army.cancel_order(order['id'])
 

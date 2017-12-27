@@ -2,9 +2,6 @@ import logging
 from lib import Strategier
 from lib.utils import *
 
-logger = setup_logger(__name__, 'logs/log.log')
-
-
 class SellStrategier(Strategier):
     """
     Provide algorithms and rules to determine if we should sell. 
@@ -16,6 +13,8 @@ class SellStrategier(Strategier):
         Strategier.__init__(self, army, currency, granularity,
                             num_buckets, term_n, macd_short_n, macd_long_n,
                             time_str)
+        # logger
+        self.logger = setup_logger(__name__, 'logs/%s_log.log' % time_str)
 
     def should_sell(self, buy_order, option=1):
         """

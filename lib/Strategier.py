@@ -1,5 +1,3 @@
-
-
 class Strategier():
     """
     The parent of the buy and sell strategiers.
@@ -8,10 +6,6 @@ class Strategier():
     def __init__(self, army, currency, granularity, num_buckets, term_n,
                  macd_short_n, macd_long_n, time_str
                  ):
-        # logger
-        self.time_str = time_str # log time string
-        self.logger = setup_logger(__name__, 'logs/%s_log.log' % time_str)
-
         # basic
         self.army = army
         self.currency = currency

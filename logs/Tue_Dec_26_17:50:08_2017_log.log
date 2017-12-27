@@ -1,0 +1,27 @@
+2017-12-26 17:50:08,983 INFO 
+2017-12-26 17:50:08,983 INFO ---------------New trade---------------
+2017-12-26 17:50:10,129 INFO Trade Option:2
+2017-12-26 17:50:10,130 INFO Initial Account Summary:{u'LTC-USD': {'currency_type': 'coin', 'price': 281.0, 'size': 0.01}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 498.1635094}}
+2017-12-26 17:50:10,130 INFO ########## Trade ##########
+2017-12-26 17:50:10,908 INFO MACD: short ema:$280.910311711, long ema:$280.617582095
+2017-12-26 17:50:10,908 INFO MACD: short ema:$280.910311711, long ema:$280.617582095
+2017-12-26 17:50:10,908 INFO Waiting price<ema to start trading cycle.
+2017-12-26 17:50:12,910 INFO Start trading loop......
+2017-12-26 17:50:12,911 INFO Doing initial check......
+2017-12-26 17:50:13,610 INFO Current Acct info: {u'LTC-USD': {'currency_type': 'coin', 'price': 281.0, 'size': 0.01}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 498.1635094}}
+2017-12-26 17:50:13,610 INFO Current total value: 500.9735094
+2017-12-26 17:50:13,610 INFO Cleanning all orders......
+2017-12-26 17:50:15,022 INFO Executing buy order ...... 
+2017-12-26 17:50:16,008 INFO MACD: short ema:$280.908773249, long ema:$280.617582095
+2017-12-26 17:50:16,008 INFO MACD: short ema:$280.908773249, long ema:$280.617582095
+2017-12-26 17:50:16,933 INFO Placed a buy order.
+2017-12-26 17:50:19,362 INFO Exception:global name 'none' is not defined
+2017-12-26 17:50:19,362 INFO Start trading loop......
+2017-12-26 17:50:19,362 INFO Doing initial check......
+2017-12-26 17:50:20,065 INFO Current Acct info: {u'LTC-USD': {'currency_type': 'coin', 'price': 281.0, 'size': 0.01}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 498.1635094}}
+2017-12-26 17:50:20,066 INFO Current total value: 500.9735094
+2017-12-26 17:50:20,066 INFO Cleanning all orders......
+2017-12-26 17:50:21,928 INFO Executing buy order ...... 
+2017-12-26 17:50:22,676 INFO MACD: short ema:$280.908773249, long ema:$280.617582095
+2017-12-26 17:50:22,676 INFO MACD: short ema:$280.908773249, long ema:$280.617582095
+2017-12-26 17:50:23,426 INFO Placed a buy order.

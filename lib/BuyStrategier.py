@@ -14,6 +14,8 @@ class BuyStrategier(Strategier):
         Strategier.__init__(self, army, currency, granularity,
                             num_buckets, term_n, macd_short_n, macd_long_n,
                             time_str)
+        # logger
+        self.logger = setup_logger(__name__, 'logs/%s_log.log' % time_str)
 
     def should_buy(self, option=1):
         """
