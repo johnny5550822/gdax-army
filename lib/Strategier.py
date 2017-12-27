@@ -71,8 +71,12 @@ class Strategier():
         """
 
         # Get the cloest ema for short ema
+        print('short')
         short_ema = self._get_cloest_ema(self.macd_short_n)
+        print(short_ema)
 
         # Get the cloest ema for long ema
+        print('long')
         long_ema = self._get_cloest_ema(self.macd_long_n)
+        print(long_ema)
         return short_ema, long_ema

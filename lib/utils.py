@@ -56,6 +56,7 @@ def setup_logger(name, log_file, level=logging.INFO):
 
     return logger
 
+
 def _customTime(*args):
     utc_dt = utc.localize(datetime.utcnow())
     my_tz = timezone("America/Los_Angeles")

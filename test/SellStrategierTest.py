@@ -1,6 +1,7 @@
 # TODO: fix the path issue by writing python setup.py script:
 # https://stackoverflow.com/questions/9383014/cant-import-my-own-modules-in-python
-import sys, time
+import sys
+import time
 sys.path.append("..")
 
 import unittest
@@ -22,9 +23,9 @@ class SellStrategierTest(unittest.TestCase):
                        ).replace(' ', '_')
 
         # Please hide if not in testing
-        api_key = '28572369dacb448565d43c7610ec8749'
-        secret_key = 'lRBkKV8jyNwB1p9VNkDNPTeMAy+8dBxU2tW7hh90dFrzto3gsJFF/YFO7sdjalnxousBPSp72NE7rwMJIwDm7w=='
-        passphrase = 'm2g1mfnjp7bfx5m755qaor'
+        api_key = '03c1c0573c80175f1b102b58e4e6914d'
+        secret_key = 'KUhIQcbPNK+X+Lj44VEUcO1kTxQHuI96QbC6L9n3XNSzI9pdO1sSBKoYBgOk3+XESYl/xGcphhG4ZuhwCZ9X2w=='
+        passphrase = 'upliordo8g8kqf7kesl9pb9'
 
         # parameters
         interest_currency = ['LTC', 'USD']
