@@ -19,3 +19,6 @@ python run.py
 - If you are using subl, please auto format it following PEP-8 standard
     - https://packagecontrol.io/packages/Python%20PEP8%20Autoformat
 - When you write tests in test, please follow the convention in sampleUnitTest.py. Also, please name the test python file accordingly. 
+
+# Trading Strategy Notes
+- 12/27/17 If we buy at high price (e.g., $282) and using the macd rule. Let say the price suddenly go down a lot, so the ema-12 and ema-26 will be lowering. Even we use the rule ema-12 < ema-26, we cannot sell the stock because the selling rule is 'return (short_macd_ema < long_macd_ema) and (price > buy_price)', so I have to remove (price > buy_price) in order to sell the stock. But then, hmm..., how do we handle this situation, like we buy in high price following macd rule, and then the price drops. 
