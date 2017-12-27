@@ -218,14 +218,14 @@ class Trader():
                                         size=self.size,
                                         product_id=self.currency)
 
-            if self._is_order_placed(order):
+            if self._is_order_placed(sell_order):
                 self.logger.info('Placed a sell order.')
                 is_sold = self._wait_order_complete(sell_order['id'],
                                                     pause_time, time_limit)
                 if not is_sold:
                     self.logger.info('Not sell sell order. Consider resell.')
                     self.army.cancel_order(sell_order['id'])
-                    if self.sellStrategier.should_resell(order):
+                    if self.sellStrategier.should_resell(sell_order):
                         self.logger.info('Resell.')
                         new_order = self.army.sell(product_id=self.currency,
                                                    price=price,
@@ -235,7 +235,7 @@ class Trader():
                         new_order['price'] = price  # they missed this info
                         self.logger.info("Sell at market price, I am a taker!")
                         return True, new_order
-                return is_sold, order
+                return is_sold, sell_order
         return False, None
 
     def _get_acct_summary(self):

@@ -59,7 +59,8 @@ class SellStrategier(Strategier):
         self.logger.info('Simple EMA: price:$%s, ema:$%s' % (price, ema))
 
         # return True
-        return (price < ema) and (price > buy_price)
+        #return (price < ema) and (price > buy_price)
+        return (price < ema)
 
     def _determine_by_macd(self, buy_order):
         """
@@ -78,5 +79,6 @@ class SellStrategier(Strategier):
         self.logger.info('MACD: short ema:$%s, long ema:$%s' %
                          (short_macd_ema, long_macd_ema))
 
-        # return True
-        return (short_macd_ema < long_macd_ema) and (price > buy_price)
+        # return. We cannot use price> buy_price because we may run into infinte while loop for sell. Well, if we assume the stock is always going up, then price > buy_price would make sense, but it will takes a long time (e.g., one day) to wait for cycle to complete. 
+        #return (short_macd_ema < long_macd_ema) and (price > buy_price)
+        return (short_macd_ema < long_macd_ema)
