@@ -5,6 +5,7 @@ from datetime import datetime
 import tzlocal
 import logging
 import time
+from pytz import timezone
 
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 
@@ -54,6 +55,8 @@ def setup_logger(name, log_file, level=logging.INFO):
 
 def get_current_time():
     """
-    Get current time.
+    Get current time in PST.
     """
-    return time.asctime(time.localtime(time.time()))
+    tz = timezone('America/Los_Angeles')
+    ct = datetime.now(tz)
+    return ct.strftime('%Y-%m-%d_%H-%M-%S')
