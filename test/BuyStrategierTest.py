@@ -1,6 +1,6 @@
 # TODO: fix the path issue by writing python setup.py script:
 # https://stackoverflow.com/questions/9383014/cant-import-my-own-modules-in-python
-import sys
+import sys, time
 sys.path.append("..")
 
 import unittest
@@ -9,6 +9,7 @@ from lib.utils import *
 
 from lib import GdaxArmy, BuyStrategier, SellStrategier
 
+
 class BuyStrategierTest(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
@@ -16,10 +17,14 @@ class BuyStrategierTest(unittest.TestCase):
         super(BuyStrategierTest, self).__init__(*args, **kwargs)
         # self.gen_stubs()
 
+        # timestamp
+        time_str = str(time.asctime(time.localtime(time.time()))
+                       ).replace(' ', '_')
+
         # Please hide if not in testing
-        api_key = ''
-        secret_key = ''
-        passphrase = ''
+        api_key = '28572369dacb448565d43c7610ec8749'
+        secret_key = 'lRBkKV8jyNwB1p9VNkDNPTeMAy+8dBxU2tW7hh90dFrzto3gsJFF/YFO7sdjalnxousBPSp72NE7rwMJIwDm7w=='
+        passphrase = 'm2g1mfnjp7bfx5m755qaor'
 
         # parameters
         interest_currency = ['LTC', 'USD']
@@ -45,13 +50,15 @@ class BuyStrategierTest(unittest.TestCase):
 
         # strategiers
         self.buyStrategier = BuyStrategier(self.army, currency, granularity,
-                                           num_buckets, term_n, macd_short_n, macd_long_n)
+                                           num_buckets, term_n, macd_short_n,
+                                            macd_long_n, time_str)
 
     def testOne(self):
         self.buyStrategier.should_buy(option=1)
 
     def testTwo(self):
         self.buyStrategier.should_buy(option=2)
+
 
 def main():
     unittest.main()

@@ -1,6 +1,6 @@
 # TODO: fix the path issue by writing python setup.py script:
 # https://stackoverflow.com/questions/9383014/cant-import-my-own-modules-in-python
-import sys
+import sys, time
 sys.path.append("..")
 
 import unittest
@@ -16,6 +16,10 @@ class SellStrategierTest(unittest.TestCase):
         # Overriding original test case __init__
         super(SellStrategierTest, self).__init__(*args, **kwargs)
         # self.gen_stubs()
+
+        # timestamp
+        time_str = str(time.asctime(time.localtime(time.time()))
+                       ).replace(' ', '_')
 
         # Please hide if not in testing
         api_key = '097f67c2c1cb3452f33fcdf143361142'
@@ -46,7 +50,7 @@ class SellStrategierTest(unittest.TestCase):
 
         # strategiers
         self.sellStrategier = SellStrategier(self.army, currency, granularity,
-                                             num_buckets, term_n, macd_short_n, macd_long_n)
+                                             num_buckets, term_n, macd_short_n, macd_long_n, time_str)
 
     def testOne(self):
         buy_order = {}
