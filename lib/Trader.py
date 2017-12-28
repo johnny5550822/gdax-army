@@ -106,7 +106,7 @@ class Trader():
                         try:
                             time.sleep(30)  # not overwhelming the api
                             is_bought, buy_order = self._execute_buy_order(
-                                time_limit=30,
+                                time_limit=60,
                                 trade_option=self.trade_option)
                             if not is_bought:
                                 self._clean_an_order(buy_order)
@@ -122,7 +122,7 @@ class Trader():
                             time.sleep(30)  # not overwhelming the api
                             is_sold, sell_order = self._execute_sell_order(
                                 order=buy_order,
-                                time_limit=30,
+                                time_limit=60,
                                 trade_option=self.trade_option)
                             if not is_sold:
                                 self._clean_an_order(sell_order)
