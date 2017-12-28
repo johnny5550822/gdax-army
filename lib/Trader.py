@@ -159,7 +159,7 @@ class Trader():
             self.logger.info('Cancel a placed order...')
             self.army.cancel_order(order['id'])
 
-    def _determine_order_price(self, pos=3, order_type='bids'):
+    def _determine_order_price(self, pos=0, order_type='bids'):
         """
         Determine the limited order price. To be more specifiy, the order book will be obtained and the pos_th order price will be picked to be the price. This can avoid choosing an arbitrary price delta (differential difference) that is not sure how far it is from the current trade price.
 
