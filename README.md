@@ -27,3 +27,5 @@ python run.py
 
 - 12/27/17 Seem like it took a long time to buy/sell after placing the order if the price is in the third/fourth position (probably because other algorithms are doing this too), so we will just buy/sell in the first position and see what happened. Grandularity:1min, 12-ema, 26-ema. 2017-12-27 15-08-44
 
+-12/28/17 Look like 12-ema and 26-ema is pretty sensitive to small little up or down, which is not good. Will has a lot of false positive (earning opportunity), will change 26-ema to 36-ema. 2017-12-27_18-03-23_trade.log
+
