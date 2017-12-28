@@ -1,0 +1,5 @@
+2017-12-27 18:02:46,066 INFO 
+2017-12-27 18:02:46,067 INFO ---------------New trade---------------
+2017-12-27 18:02:46,843 INFO Trade Option:2
+2017-12-27 18:02:46,844 INFO Initial Account Summary:{u'LTC-USD': {'currency_type': 'coin', 'price': 263.96, 'size': 0.0}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 500.496104}}
+2017-12-27 18:02:46,844 INFO ########## Trade ##########

@@ -1,0 +1,427 @@
+2017-12-27 16:56:24,932 INFO 
+2017-12-27 16:56:24,932 INFO ---------------New trade---------------
+2017-12-27 16:56:25,701 INFO Trade Option:2
+2017-12-27 16:56:25,701 INFO Initial Account Summary:{u'LTC-USD': {'currency_type': 'coin', 'price': 262.7, 'size': 0.03}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 492.632204}}
+2017-12-27 16:56:25,701 INFO ########## Trade ##########
+2017-12-27 16:56:25,961 INFO MACD: short ema:$262.277766069, long ema:$262.843591318
+2017-12-27 16:56:25,962 INFO Start trading loop......
+2017-12-27 16:56:25,962 INFO Doing initial check......
+2017-12-27 16:56:26,597 INFO Current Acct info: {u'LTC-USD': {'currency_type': 'coin', 'price': 262.7, 'size': 0.03}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 492.632204}}
+2017-12-27 16:56:26,597 INFO Current total value: 500.513204
+2017-12-27 16:56:26,597 INFO Cleanning all orders......
+2017-12-27 16:56:56,743 INFO Executing buy order ...... 
+2017-12-27 16:56:57,646 INFO MACD: short ema:$262.277766069, long ema:$262.843591318
+2017-12-27 16:56:57,646 INFO Bought?:False
+2017-12-27 16:57:27,677 INFO Executing buy order ...... 
+2017-12-27 16:57:27,961 INFO MACD: short ema:$262.265458377, long ema:$262.83766539
+2017-12-27 16:57:27,961 INFO Bought?:False
+2017-12-27 16:57:57,979 INFO Executing buy order ...... 
+2017-12-27 16:57:58,212 INFO MACD: short ema:$262.332310934, long ema:$262.827467931
+2017-12-27 16:57:58,212 INFO Bought?:False
+2017-12-27 16:58:28,243 INFO Executing buy order ...... 
+2017-12-27 16:58:28,517 INFO MACD: short ema:$262.332310934, long ema:$262.827467931
+2017-12-27 16:58:28,518 INFO Bought?:False
+2017-12-27 16:58:58,539 INFO Executing buy order ...... 
+2017-12-27 16:58:58,796 INFO MACD: short ema:$262.382132921, long ema:$262.814541624
+2017-12-27 16:58:58,796 INFO Bought?:False
+2017-12-27 16:59:28,827 INFO Executing buy order ...... 
+2017-12-27 16:59:29,111 INFO MACD: short ema:$262.382132921, long ema:$262.814541624
+2017-12-27 16:59:29,111 INFO Bought?:False
+2017-12-27 16:59:59,135 INFO Executing buy order ...... 
+2017-12-27 16:59:59,394 INFO MACD: short ema:$262.428195311, long ema:$262.804630437
+2017-12-27 16:59:59,394 INFO Bought?:False
+2017-12-27 17:00:29,424 INFO Executing buy order ...... 
+2017-12-27 17:00:29,704 INFO MACD: short ema:$262.472851654, long ema:$262.798306636
+2017-12-27 17:00:29,704 INFO Bought?:False
+2017-12-27 17:00:59,734 INFO Executing buy order ...... 
+2017-12-27 17:01:00,078 INFO MACD: short ema:$262.472851654, long ema:$262.798306636
+2017-12-27 17:01:00,079 INFO Bought?:False
+2017-12-27 17:01:30,079 INFO Executing buy order ...... 
+2017-12-27 17:01:30,348 INFO MACD: short ema:$262.566850808, long ema:$262.820462243
+2017-12-27 17:01:30,348 INFO Bought?:False
+2017-12-27 17:02:00,379 INFO Executing buy order ...... 
+2017-12-27 17:02:00,714 INFO MACD: short ema:$262.566850808, long ema:$262.820462243
+2017-12-27 17:02:00,715 INFO Bought?:False
+2017-12-27 17:02:30,734 INFO Executing buy order ...... 
+2017-12-27 17:02:31,025 INFO MACD: short ema:$262.473962518, long ema:$262.753761308
+2017-12-27 17:02:31,026 INFO Bought?:False
+2017-12-27 17:03:01,043 INFO Executing buy order ...... 
+2017-12-27 17:03:01,286 INFO MACD: short ema:$262.421654826, long ema:$262.728576117
+2017-12-27 17:03:01,286 INFO Bought?:False
+2017-12-27 17:03:31,299 INFO Executing buy order ...... 
+2017-12-27 17:03:31,587 INFO MACD: short ema:$262.421654826, long ema:$262.728576117
+2017-12-27 17:03:31,588 INFO Bought?:False
+2017-12-27 17:04:01,615 INFO Executing buy order ...... 
+2017-12-27 17:04:01,854 INFO MACD: short ema:$262.472169468, long ema:$262.730163068
+2017-12-27 17:04:01,855 INFO Bought?:False
+2017-12-27 17:04:31,885 INFO Executing buy order ...... 
+2017-12-27 17:04:32,188 INFO MACD: short ema:$262.472169468, long ema:$262.730163068
+2017-12-27 17:04:32,188 INFO Bought?:False
+2017-12-27 17:05:02,204 INFO Executing buy order ...... 
+2017-12-27 17:05:04,084 INFO MACD: short ema:$262.54875878, long ema:$262.7479288
+2017-12-27 17:05:04,084 INFO Bought?:False
+2017-12-27 17:05:34,115 INFO Executing buy order ...... 
+2017-12-27 17:05:34,416 INFO MACD: short ema:$262.610724885, long ema:$262.762951921
+2017-12-27 17:05:34,416 INFO Bought?:False
+2017-12-27 17:06:04,447 INFO Executing buy order ...... 
+2017-12-27 17:06:04,703 INFO MACD: short ema:$262.610724885, long ema:$262.762951921
+2017-12-27 17:06:04,704 INFO Bought?:False
+2017-12-27 17:06:34,734 INFO Executing buy order ...... 
+2017-12-27 17:06:34,982 INFO MACD: short ema:$262.671441767, long ema:$262.781087179
+2017-12-27 17:06:34,982 INFO Bought?:False
+2017-12-27 17:07:05,013 INFO Executing buy order ...... 
+2017-12-27 17:07:05,298 INFO MACD: short ema:$262.671441767, long ema:$262.781087179
+2017-12-27 17:07:05,298 INFO Bought?:False
+2017-12-27 17:07:35,329 INFO Executing buy order ...... 
+2017-12-27 17:07:35,579 INFO MACD: short ema:$262.672980228, long ema:$262.78182792
+2017-12-27 17:07:35,580 INFO Bought?:False
+2017-12-27 17:08:05,599 INFO Executing buy order ...... 
+2017-12-27 17:08:05,831 INFO MACD: short ema:$262.637137116, long ema:$262.756507333
+2017-12-27 17:08:05,831 INFO Bought?:False
+2017-12-27 17:08:35,862 INFO Executing buy order ...... 
+2017-12-27 17:08:36,170 INFO MACD: short ema:$262.637137116, long ema:$262.756507333
+2017-12-27 17:08:36,171 INFO Bought?:False
+2017-12-27 17:09:06,201 INFO Executing buy order ...... 
+2017-12-27 17:09:06,478 INFO MACD: short ema:$262.676275785, long ema:$262.766450555
+2017-12-27 17:09:06,478 INFO Bought?:False
+2017-12-27 17:09:36,499 INFO Executing buy order ...... 
+2017-12-27 17:09:36,761 INFO MACD: short ema:$262.712233356, long ema:$262.777083861
+2017-12-27 17:09:36,761 INFO Bought?:False
+2017-12-27 17:10:06,767 INFO Executing buy order ...... 
+2017-12-27 17:10:07,054 INFO MACD: short ema:$262.712233356, long ema:$262.777083861
+2017-12-27 17:10:07,054 INFO Bought?:False
+2017-12-27 17:10:37,079 INFO Executing buy order ...... 
+2017-12-27 17:10:37,324 INFO MACD: short ema:$262.741120532, long ema:$262.786188774
+2017-12-27 17:10:37,324 INFO Bought?:False
+2017-12-27 17:11:07,355 INFO Executing buy order ...... 
+2017-12-27 17:11:07,644 INFO MACD: short ema:$262.741120532, long ema:$262.786188774
+2017-12-27 17:11:07,644 INFO Bought?:False
+2017-12-27 17:11:37,667 INFO Executing buy order ...... 
+2017-12-27 17:11:37,923 INFO MACD: short ema:$262.71159903, long ema:$262.767513615
+2017-12-27 17:11:37,923 INFO Bought?:False
+2017-12-27 17:12:07,927 INFO Executing buy order ...... 
+2017-12-27 17:12:08,836 INFO MACD: short ema:$262.71159903, long ema:$262.767513615
+2017-12-27 17:12:08,837 INFO Bought?:False
+2017-12-27 17:12:38,860 INFO Executing buy order ...... 
+2017-12-27 17:12:39,120 INFO MACD: short ema:$262.71159903, long ema:$262.767513615
+2017-12-27 17:12:39,121 INFO Bought?:False
+2017-12-27 17:13:09,127 INFO Executing buy order ...... 
+2017-12-27 17:13:09,389 INFO MACD: short ema:$262.619045333, long ema:$262.718808902
+2017-12-27 17:13:09,390 INFO Bought?:False
+2017-12-27 17:13:39,420 INFO Executing buy order ...... 
+2017-12-27 17:13:39,717 INFO MACD: short ema:$262.619045333, long ema:$262.718808902
+2017-12-27 17:13:39,717 INFO Bought?:False
+2017-12-27 17:14:09,742 INFO Executing buy order ...... 
+2017-12-27 17:14:10,000 INFO MACD: short ema:$262.462269128, long ema:$262.635934149
+2017-12-27 17:14:10,000 INFO Bought?:False
+2017-12-27 17:14:40,030 INFO Executing buy order ...... 
+2017-12-27 17:14:40,333 INFO MACD: short ema:$262.327837191, long ema:$262.558402658
+2017-12-27 17:14:40,333 INFO Bought?:False
+2017-12-27 17:15:10,363 INFO Executing buy order ...... 
+2017-12-27 17:15:10,661 INFO MACD: short ema:$262.327837191, long ema:$262.558402658
+2017-12-27 17:15:10,662 INFO Bought?:False
+2017-12-27 17:15:40,667 INFO Executing buy order ...... 
+2017-12-27 17:15:40,961 INFO MACD: short ema:$262.195507209, long ema:$262.477313826
+2017-12-27 17:15:40,961 INFO Bought?:False
+2017-12-27 17:16:10,992 INFO Executing buy order ...... 
+2017-12-27 17:16:11,272 INFO MACD: short ema:$262.195507209, long ema:$262.477313826
+2017-12-27 17:16:11,272 INFO Bought?:False
+2017-12-27 17:16:41,303 INFO Executing buy order ...... 
+2017-12-27 17:16:41,587 INFO MACD: short ema:$262.277618526, long ema:$262.499460675
+2017-12-27 17:16:41,588 INFO Bought?:False
+2017-12-27 17:17:11,618 INFO Executing buy order ...... 
+2017-12-27 17:17:11,928 INFO MACD: short ema:$262.277618526, long ema:$262.499460675
+2017-12-27 17:17:11,928 INFO Bought?:False
+2017-12-27 17:17:41,959 INFO Executing buy order ...... 
+2017-12-27 17:17:42,223 INFO MACD: short ema:$262.277618526, long ema:$262.499460675
+2017-12-27 17:17:42,224 INFO Bought?:False
+2017-12-27 17:18:12,254 INFO Executing buy order ...... 
+2017-12-27 17:18:12,567 INFO MACD: short ema:$262.191831061, long ema:$262.441722838
+2017-12-27 17:18:12,567 INFO Bought?:False
+2017-12-27 17:18:42,597 INFO Executing buy order ...... 
+2017-12-27 17:18:42,879 INFO MACD: short ema:$262.191831061, long ema:$262.441722838
+2017-12-27 17:18:42,880 INFO Bought?:False
+2017-12-27 17:19:12,910 INFO Executing buy order ...... 
+2017-12-27 17:19:13,169 INFO MACD: short ema:$262.177703205, long ema:$262.416410022
+2017-12-27 17:19:13,169 INFO Bought?:False
+2017-12-27 17:19:43,199 INFO Executing buy order ...... 
+2017-12-27 17:19:43,444 INFO MACD: short ema:$262.234506262, long ema:$262.426963993
+2017-12-27 17:19:43,445 INFO Bought?:False
+2017-12-27 17:20:13,475 INFO Executing buy order ...... 
+2017-12-27 17:20:13,778 INFO MACD: short ema:$262.234506262, long ema:$262.426963993
+2017-12-27 17:20:13,778 INFO Bought?:False
+2017-12-27 17:20:43,808 INFO Executing buy order ...... 
+2017-12-27 17:20:44,080 INFO MACD: short ema:$262.247422459, long ema:$262.418985839
+2017-12-27 17:20:44,080 INFO Bought?:False
+2017-12-27 17:21:14,104 INFO Executing buy order ...... 
+2017-12-27 17:21:14,385 INFO MACD: short ema:$262.247422459, long ema:$262.418985839
+2017-12-27 17:21:14,386 INFO Bought?:False
+2017-12-27 17:21:44,399 INFO Executing buy order ...... 
+2017-12-27 17:21:44,649 INFO MACD: short ema:$262.231605986, long ema:$262.398484803
+2017-12-27 17:21:44,649 INFO Bought?:False
+2017-12-27 17:22:14,679 INFO Executing buy order ...... 
+2017-12-27 17:22:14,929 INFO MACD: short ema:$262.200836755, long ema:$262.383669985
+2017-12-27 17:22:14,929 INFO Bought?:False
+2017-12-27 17:22:44,959 INFO Executing buy order ...... 
+2017-12-27 17:22:45,243 INFO MACD: short ema:$262.200836755, long ema:$262.383669985
+2017-12-27 17:22:45,243 INFO Bought?:False
+2017-12-27 17:23:15,268 INFO Executing buy order ...... 
+2017-12-27 17:23:15,528 INFO MACD: short ema:$262.185323408, long ema:$262.362657376
+2017-12-27 17:23:15,529 INFO Bought?:False
+2017-12-27 17:23:45,559 INFO Executing buy order ...... 
+2017-12-27 17:23:45,821 INFO MACD: short ema:$262.185323408, long ema:$262.362657376
+2017-12-27 17:23:45,821 INFO Bought?:False
+2017-12-27 17:24:15,827 INFO Executing buy order ...... 
+2017-12-27 17:24:16,096 INFO MACD: short ema:$262.172433416, long ema:$262.343256128
+2017-12-27 17:24:16,096 INFO Bought?:False
+2017-12-27 17:24:46,126 INFO Executing buy order ...... 
+2017-12-27 17:24:46,409 INFO MACD: short ema:$262.162828275, long ema:$262.325977883
+2017-12-27 17:24:46,409 INFO Bought?:False
+2017-12-27 17:25:16,411 INFO Executing buy order ...... 
+2017-12-27 17:25:16,689 INFO MACD: short ema:$262.162828275, long ema:$262.325977883
+2017-12-27 17:25:16,689 INFO Bought?:False
+2017-12-27 17:25:46,720 INFO Executing buy order ...... 
+2017-12-27 17:25:46,952 INFO MACD: short ema:$262.237304399, long ema:$262.351406121
+2017-12-27 17:25:46,953 INFO Bought?:False
+2017-12-27 17:26:16,983 INFO Executing buy order ...... 
+2017-12-27 17:26:17,212 INFO MACD: short ema:$262.262571178, long ema:$262.35506052
+2017-12-27 17:26:17,212 INFO Bought?:False
+2017-12-27 17:26:47,243 INFO Executing buy order ...... 
+2017-12-27 17:26:47,668 INFO MACD: short ema:$262.262571178, long ema:$262.35506052
+2017-12-27 17:26:47,668 INFO Bought?:False
+2017-12-27 17:27:17,699 INFO Executing buy order ...... 
+2017-12-27 17:27:17,922 INFO MACD: short ema:$262.262571178, long ema:$262.35506052
+2017-12-27 17:27:17,922 INFO Bought?:False
+2017-12-27 17:27:47,952 INFO Executing buy order ...... 
+2017-12-27 17:27:48,286 INFO MACD: short ema:$262.262571178, long ema:$262.35506052
+2017-12-27 17:27:48,287 INFO Bought?:False
+2017-12-27 17:28:18,317 INFO Executing buy order ...... 
+2017-12-27 17:28:18,563 INFO MACD: short ema:$262.297560227, long ema:$262.365056029
+2017-12-27 17:28:18,563 INFO Bought?:False
+2017-12-27 17:28:48,594 INFO Executing buy order ...... 
+2017-12-27 17:28:48,858 INFO MACD: short ema:$262.497580547, long ema:$262.45760333
+2017-12-27 17:28:49,144 INFO Placed a buy order.
+2017-12-27 17:28:49,270 INFO Order complete remaining time:60
+2017-12-27 17:28:59,917 INFO Order complete remaining time:50
+2017-12-27 17:29:10,551 INFO Order complete remaining time:40
+2017-12-27 17:29:21,194 INFO Order complete remaining time:30
+2017-12-27 17:29:31,802 INFO Order complete remaining time:20
+2017-12-27 17:29:42,452 INFO Order complete remaining time:10
+2017-12-27 17:29:52,980 INFO Cancel a placed order...
+2017-12-27 17:29:54,101 INFO Bought?:False
+2017-12-27 17:30:24,132 INFO Executing buy order ...... 
+2017-12-27 17:30:24,405 INFO MACD: short ema:$262.754994191, long ema:$262.587163592
+2017-12-27 17:30:24,663 INFO Placed a buy order.
+2017-12-27 17:30:24,781 INFO Order complete remaining time:60
+2017-12-27 17:30:35,429 INFO Order complete remaining time:50
+2017-12-27 17:30:46,039 INFO Order complete remaining time:40
+2017-12-27 17:30:56,681 INFO Order complete remaining time:30
+2017-12-27 17:31:07,305 INFO Order complete remaining time:20
+2017-12-27 17:31:18,003 INFO Order complete remaining time:10
+2017-12-27 17:31:28,495 INFO Cancel a placed order...
+2017-12-27 17:31:28,626 INFO Bought?:False
+2017-12-27 17:31:58,657 INFO Executing buy order ...... 
+2017-12-27 17:31:58,950 INFO MACD: short ema:$263.047858836, long ema:$262.758126595
+2017-12-27 17:31:59,270 INFO Placed a buy order.
+2017-12-27 17:31:59,394 INFO Order complete remaining time:60
+2017-12-27 17:32:10,038 INFO Order complete remaining time:50
+2017-12-27 17:32:20,684 INFO Order complete remaining time:40
+2017-12-27 17:32:31,286 INFO Order complete remaining time:30
+2017-12-27 17:32:41,958 INFO Order complete remaining time:20
+2017-12-27 17:32:52,609 INFO Order complete remaining time:10
+2017-12-27 17:33:03,126 INFO Cancel a placed order...
+2017-12-27 17:33:03,259 INFO Bought?:False
+2017-12-27 17:33:33,289 INFO Executing buy order ...... 
+2017-12-27 17:33:33,561 INFO MACD: short ema:$263.160732624, long ema:$262.833875799
+2017-12-27 17:33:34,119 INFO Placed a buy order.
+2017-12-27 17:33:34,252 INFO Order complete remaining time:60
+2017-12-27 17:33:44,945 INFO Order complete remaining time:50
+2017-12-27 17:33:55,626 INFO Order complete remaining time:40
+2017-12-27 17:34:06,636 INFO Completed order at:30s
+2017-12-27 17:34:06,636 INFO Bought?:True
+2017-12-27 17:34:06,637 INFO Bought order:{u'status': u'pending', u'created_at': u'2017-12-28T01:33:33.849201Z', u'post_only': True, u'product_id': u'LTC-USD', u'fill_fees': u'0.0000000000000000', u'settled': False, u'price': u'263.78000000', u'executed_value': u'0.0000000000000000', u'id': u'84334df3-bac2-456f-8b65-2c447251ce67', u'time_in_force': u'GTC', u'stp': u'dc', u'filled_size': u'0.00000000', u'type': u'limit', u'side': u'buy', u'size': u'0.01000000'}
+2017-12-27 17:34:36,667 INFO Executing sell order ...... 
+2017-12-27 17:34:37,068 INFO MACD: short ema:$263.319459453, long ema:$262.960647997
+2017-12-27 17:34:37,068 INFO Sold?:False
+2017-12-27 17:35:07,079 INFO Executing sell order ...... 
+2017-12-27 17:35:07,544 INFO MACD: short ema:$263.319459453, long ema:$262.960647997
+2017-12-27 17:35:07,544 INFO Sold?:False
+2017-12-27 17:35:37,575 INFO Executing sell order ...... 
+2017-12-27 17:35:37,941 INFO MACD: short ema:$263.370311845, long ema:$263.01171112
+2017-12-27 17:35:37,942 INFO Sold?:False
+2017-12-27 17:36:07,972 INFO Executing sell order ...... 
+2017-12-27 17:36:08,371 INFO MACD: short ema:$263.370311845, long ema:$263.01171112
+2017-12-27 17:36:08,371 INFO Sold?:False
+2017-12-27 17:36:38,401 INFO Executing sell order ...... 
+2017-12-27 17:36:38,784 INFO MACD: short ema:$263.416181028, long ema:$263.060418385
+2017-12-27 17:36:38,785 INFO Sold?:False
+2017-12-27 17:37:08,815 INFO Executing sell order ...... 
+2017-12-27 17:37:09,203 INFO MACD: short ema:$263.354642567, long ema:$263.030788749
+2017-12-27 17:37:09,203 INFO Sold?:False
+2017-12-27 17:37:39,234 INFO Executing sell order ...... 
+2017-12-27 17:37:39,636 INFO MACD: short ema:$263.354642567, long ema:$263.030788749
+2017-12-27 17:37:39,636 INFO Sold?:False
+2017-12-27 17:38:09,647 INFO Executing sell order ...... 
+2017-12-27 17:38:10,041 INFO MACD: short ema:$263.323159095, long ema:$263.039619193
+2017-12-27 17:38:10,041 INFO Sold?:False
+2017-12-27 17:38:40,072 INFO Executing sell order ...... 
+2017-12-27 17:38:40,456 INFO MACD: short ema:$263.323159095, long ema:$263.039619193
+2017-12-27 17:38:40,456 INFO Sold?:False
+2017-12-27 17:39:10,467 INFO Executing sell order ...... 
+2017-12-27 17:39:10,903 INFO MACD: short ema:$263.296519234, long ema:$263.047795528
+2017-12-27 17:39:10,904 INFO Sold?:False
+2017-12-27 17:39:40,934 INFO Executing sell order ...... 
+2017-12-27 17:39:41,285 INFO MACD: short ema:$263.253741127, long ema:$263.045681708
+2017-12-27 17:39:41,286 INFO Sold?:False
+2017-12-27 17:40:11,296 INFO Executing sell order ...... 
+2017-12-27 17:40:11,813 INFO MACD: short ema:$263.253741127, long ema:$263.045681708
+2017-12-27 17:40:11,813 INFO Sold?:False
+2017-12-27 17:40:41,831 INFO Executing sell order ...... 
+2017-12-27 17:40:42,217 INFO MACD: short ema:$263.12653835, long ema:$262.999197703
+2017-12-27 17:40:42,217 INFO Sold?:False
+2017-12-27 17:41:12,247 INFO Executing sell order ...... 
+2017-12-27 17:41:12,620 INFO MACD: short ema:$263.12653835, long ema:$262.999197703
+2017-12-27 17:41:12,620 INFO Sold?:False
+2017-12-27 17:41:42,631 INFO Executing sell order ...... 
+2017-12-27 17:41:42,994 INFO MACD: short ema:$263.133698131, long ema:$263.014263966
+2017-12-27 17:41:42,994 INFO Sold?:False
+2017-12-27 17:42:13,019 INFO Executing sell order ...... 
+2017-12-27 17:42:13,390 INFO MACD: short ema:$263.109082746, long ema:$263.002412112
+2017-12-27 17:42:13,390 INFO Sold?:False
+2017-12-27 17:42:43,420 INFO Executing sell order ...... 
+2017-12-27 17:42:43,809 INFO MACD: short ema:$263.109082746, long ema:$263.002412112
+2017-12-27 17:42:43,810 INFO Sold?:False
+2017-12-27 17:43:13,840 INFO Executing sell order ...... 
+2017-12-27 17:43:14,341 INFO MACD: short ema:$263.092300785, long ema:$263.002233409
+2017-12-27 17:43:14,341 INFO Sold?:False
+2017-12-27 17:43:44,371 INFO Executing sell order ...... 
+2017-12-27 17:43:44,803 INFO MACD: short ema:$263.092300785, long ema:$263.002233409
+2017-12-27 17:43:44,803 INFO Sold?:False
+2017-12-27 17:44:14,811 INFO Executing sell order ...... 
+2017-12-27 17:44:15,230 INFO MACD: short ema:$263.079639126, long ema:$263.002808684
+2017-12-27 17:44:15,230 INFO Sold?:False
+2017-12-27 17:44:45,260 INFO Executing sell order ...... 
+2017-12-27 17:44:45,625 INFO MACD: short ema:$262.899576302, long ema:$262.918375622
+2017-12-27 17:44:45,874 INFO Placed a sell order.
+2017-12-27 17:44:46,027 INFO Order complete remaining time:60
+2017-12-27 17:44:56,798 INFO Order complete remaining time:50
+2017-12-27 17:45:07,499 INFO Order complete remaining time:40
+2017-12-27 17:45:18,150 INFO Order complete remaining time:30
+2017-12-27 17:45:29,624 INFO Order complete remaining time:20
+2017-12-27 17:45:38,130 INFO Completed order at:12s
+2017-12-27 17:45:38,131 INFO Sold?:True
+2017-12-27 17:45:38,131 INFO Sold order:{u'status': u'pending', u'created_at': u'2017-12-28T01:44:45.875582Z', u'post_only': True, u'product_id': u'LTC-USD', u'fill_fees': u'0.0000000000000000', u'settled': False, u'price': u'262.41000000', u'executed_value': u'0.0000000000000000', u'id': u'e94c4628-6432-48be-b61a-d0285e195954', u'time_in_force': u'GTC', u'stp': u'dc', u'filled_size': u'0.00000000', u'type': u'limit', u'side': u'sell', u'size': u'0.01000000'}
+2017-12-27 17:45:38,132 INFO Start trading loop......
+2017-12-27 17:45:38,132 INFO Doing initial check......
+2017-12-27 17:45:38,761 INFO Current Acct info: {u'LTC-USD': {'currency_type': 'coin', 'price': 262.42, 'size': 0.03}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 492.632204}}
+2017-12-27 17:45:38,762 INFO Current total value: 500.504804
+2017-12-27 17:45:38,762 INFO Cleanning all orders......
+2017-12-27 17:46:08,945 INFO Executing buy order ...... 
+2017-12-27 17:46:09,247 INFO MACD: short ema:$262.824256871, long ema:$262.880718131
+2017-12-27 17:46:09,247 INFO Bought?:False
+2017-12-27 17:46:39,267 INFO Executing buy order ...... 
+2017-12-27 17:46:39,582 INFO MACD: short ema:$262.763365281, long ema:$262.847276695
+2017-12-27 17:46:39,582 INFO Bought?:False
+2017-12-27 17:47:09,604 INFO Executing buy order ...... 
+2017-12-27 17:47:09,856 INFO MACD: short ema:$262.85259605, long ema:$262.890239667
+2017-12-27 17:47:09,856 INFO Bought?:False
+2017-12-27 17:47:39,886 INFO Executing buy order ...... 
+2017-12-27 17:47:40,146 INFO MACD: short ema:$262.85259605, long ema:$262.890239667
+2017-12-27 17:47:40,147 INFO Bought?:False
+2017-12-27 17:48:10,177 INFO Executing buy order ...... 
+2017-12-27 17:48:10,427 INFO MACD: short ema:$262.875273581, long ema:$262.898370033
+2017-12-27 17:48:10,428 INFO Bought?:False
+2017-12-27 17:48:40,458 INFO Executing buy order ...... 
+2017-12-27 17:48:40,719 INFO MACD: short ema:$262.875273581, long ema:$262.898370033
+2017-12-27 17:48:40,720 INFO Bought?:False
+2017-12-27 17:49:10,735 INFO Executing buy order ...... 
+2017-12-27 17:49:11,024 INFO MACD: short ema:$262.894462261, long ema:$262.905898148
+2017-12-27 17:49:11,024 INFO Bought?:False
+2017-12-27 17:49:41,054 INFO Executing buy order ...... 
+2017-12-27 17:49:41,303 INFO MACD: short ema:$262.910698836, long ema:$262.912868626
+2017-12-27 17:49:41,303 INFO Bought?:False
+2017-12-27 17:50:11,333 INFO Executing buy order ...... 
+2017-12-27 17:50:11,605 INFO MACD: short ema:$262.910698836, long ema:$262.912868626
+2017-12-27 17:50:11,605 INFO Bought?:False
+2017-12-27 17:50:41,636 INFO Executing buy order ...... 
+2017-12-27 17:50:41,937 INFO MACD: short ema:$262.922899015, long ema:$262.91858203
+2017-12-27 17:50:42,200 INFO Placed a buy order.
+2017-12-27 17:50:42,322 INFO Order complete remaining time:60
+2017-12-27 17:50:52,969 INFO Order complete remaining time:50
+2017-12-27 17:51:03,699 INFO Order complete remaining time:40
+2017-12-27 17:51:14,397 INFO Order complete remaining time:30
+2017-12-27 17:51:25,199 INFO Order complete remaining time:20
+2017-12-27 17:51:27,319 INFO Completed order at:18s
+2017-12-27 17:51:27,319 INFO Bought?:True
+2017-12-27 17:51:27,319 INFO Bought order:{u'status': u'pending', u'created_at': u'2017-12-28T01:50:42.20529Z', u'post_only': True, u'product_id': u'LTC-USD', u'fill_fees': u'0.0000000000000000', u'settled': False, u'price': u'262.61000000', u'executed_value': u'0.0000000000000000', u'id': u'85f334ca-5b0e-4a76-948e-6882c39fd45b', u'time_in_force': u'GTC', u'stp': u'dc', u'filled_size': u'0.00000000', u'type': u'limit', u'side': u'buy', u'size': u'0.01000000'}
+2017-12-27 17:51:57,331 INFO Executing sell order ...... 
+2017-12-27 17:51:57,749 INFO MACD: short ema:$262.89641751, long ema:$262.905737771
+2017-12-27 17:51:58,029 INFO Placed a sell order.
+2017-12-27 17:51:58,156 INFO Order complete remaining time:60
+2017-12-27 17:52:00,376 INFO Completed order at:58s
+2017-12-27 17:52:00,377 INFO Sold?:True
+2017-12-27 17:52:00,377 INFO Sold order:{u'status': u'pending', u'created_at': u'2017-12-28T01:51:58.025984Z', u'post_only': True, u'product_id': u'LTC-USD', u'fill_fees': u'0.0000000000000000', u'settled': False, u'price': u'262.39000000', u'executed_value': u'0.0000000000000000', u'id': u'bb00fe3e-361a-4c66-83ab-d463b9b46025', u'time_in_force': u'GTC', u'stp': u'dc', u'filled_size': u'0.00000000', u'type': u'limit', u'side': u'sell', u'size': u'0.01000000'}
+2017-12-27 17:52:00,377 INFO Start trading loop......
+2017-12-27 17:52:00,378 INFO Doing initial check......
+2017-12-27 17:52:01,012 INFO Current Acct info: {u'LTC-USD': {'currency_type': 'coin', 'price': 262.66, 'size': 0.03}, u'USD-USD': {'currency_type': 'USD', 'price': 1, 'size': 492.632204}}
+2017-12-27 17:52:01,013 INFO Current total value: 500.512004
+2017-12-27 17:52:01,013 INFO Cleanning all orders......
+2017-12-27 17:52:31,143 INFO Executing buy order ...... 
+2017-12-27 17:52:31,512 INFO MACD: short ema:$262.89641751, long ema:$262.905737771
+2017-12-27 17:52:31,512 INFO Bought?:False
+2017-12-27 17:53:01,543 INFO Executing buy order ...... 
+2017-12-27 17:53:01,839 INFO MACD: short ema:$262.88466097, long ema:$262.899386778
+2017-12-27 17:53:01,839 INFO Bought?:False
+2017-12-27 17:53:31,847 INFO Executing buy order ...... 
+2017-12-27 17:53:32,125 INFO MACD: short ema:$262.88466097, long ema:$262.899386778
+2017-12-27 17:53:32,125 INFO Bought?:False
+2017-12-27 17:54:02,143 INFO Executing buy order ...... 
+2017-12-27 17:54:02,419 INFO MACD: short ema:$262.873411353, long ema:$262.892820356
+2017-12-27 17:54:02,419 INFO Bought?:False
+2017-12-27 17:54:32,435 INFO Executing buy order ...... 
+2017-12-27 17:54:32,689 INFO MACD: short ema:$262.873411353, long ema:$262.892820356
+2017-12-27 17:54:32,689 INFO Bought?:False
+2017-12-27 17:55:02,715 INFO Executing buy order ...... 
+2017-12-27 17:55:02,993 INFO MACD: short ema:$262.863892447, long ema:$262.886740327
+2017-12-27 17:55:02,994 INFO Bought?:False
+2017-12-27 17:55:32,995 INFO Executing buy order ...... 
+2017-12-27 17:55:33,301 INFO MACD: short ema:$262.806370532, long ema:$262.856583916
+2017-12-27 17:55:33,302 INFO Bought?:False
+2017-12-27 17:56:03,332 INFO Executing buy order ...... 
+2017-12-27 17:56:03,598 INFO MACD: short ema:$262.806370532, long ema:$262.856583916
+2017-12-27 17:56:03,598 INFO Bought?:False
+2017-12-27 17:56:33,628 INFO Executing buy order ...... 
+2017-12-27 17:56:33,884 INFO MACD: short ema:$262.835567965, long ema:$262.868222363
+2017-12-27 17:56:33,884 INFO Bought?:False
+2017-12-27 17:57:03,914 INFO Executing buy order ...... 
+2017-12-27 17:57:05,359 INFO MACD: short ema:$262.835567965, long ema:$262.868222363
+2017-12-27 17:57:05,359 INFO Bought?:False
+2017-12-27 17:57:35,390 INFO Executing buy order ...... 
+2017-12-27 17:57:35,645 INFO MACD: short ema:$262.864798734, long ema:$262.88229644
+2017-12-27 17:57:35,646 INFO Bought?:False
+2017-12-27 17:58:05,675 INFO Executing buy order ...... 
+2017-12-27 17:58:05,968 INFO MACD: short ema:$262.885598929, long ema:$262.891015161
+2017-12-27 17:58:05,968 INFO Bought?:False
+2017-12-27 17:58:35,999 INFO Executing buy order ...... 
+2017-12-27 17:58:36,312 INFO MACD: short ema:$262.885598929, long ema:$262.891015161
+2017-12-27 17:58:36,312 INFO Bought?:False
+2017-12-27 17:59:06,343 INFO Executing buy order ...... 
+2017-12-27 17:59:06,633 INFO MACD: short ema:$262.910891401, long ema:$262.902791757
+2017-12-27 17:59:06,907 INFO Placed a buy order.
+2017-12-27 17:59:07,029 INFO Order complete remaining time:60
+2017-12-27 17:59:17,645 INFO Order complete remaining time:50
+2017-12-27 17:59:28,249 INFO Order complete remaining time:40
+2017-12-27 17:59:38,901 INFO Order complete remaining time:30
+2017-12-27 17:59:49,595 INFO Order complete remaining time:20
+2017-12-27 18:00:00,227 INFO Order complete remaining time:10
+2017-12-27 18:00:10,761 INFO Cancel a placed order...
+2017-12-27 18:00:10,911 INFO Bought?:False
+2017-12-27 18:00:40,935 INFO Executing buy order ...... 
+2017-12-27 18:00:41,187 INFO MACD: short ema:$263.078212187, long ema:$262.987990116
+2017-12-27 18:00:41,444 INFO Placed a buy order.
+2017-12-27 18:00:41,555 INFO Order complete remaining time:60
+2017-12-27 18:00:52,271 INFO Order complete remaining time:50
+2017-12-27 18:01:02,905 INFO Order complete remaining time:40
+2017-12-27 18:01:13,789 INFO Order complete remaining time:30
+2017-12-27 18:01:24,983 INFO Order complete remaining time:20
+2017-12-27 18:01:35,600 INFO Exception:'status'

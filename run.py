@@ -23,7 +23,7 @@ def main():
     size_limit = 0.1  # coin size limit
 
     # moving average parameters
-    granularity = 1800  # e.g., 3600=an hour, some values are
+    granularity = 900  # e.g., 3600=an hour, some values are
     # weird (100, etc). We probably use 60 (1 min), 300 (5 min),
     # 1800(30min), 3600(1 hr)
     num_buckets = 200  # total number of buckets we are
