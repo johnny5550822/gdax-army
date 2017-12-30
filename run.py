@@ -36,7 +36,7 @@ def main():
     macd_long_n = 36  # default
 
     # trade option
-    trade_option = 2
+    trade_option = 3
 
     # Trader
     trader = Trader(api_key=api_key,
