@@ -1,7 +1,7 @@
+from __future__ import division
 import logging
 from lib import Strategier
 from lib.utils import *
-from __future__ import division
 
 
 class SellStrategier(Strategier):
