@@ -29,3 +29,5 @@ python run.py
 
 -12/28/17 Look like 12-ema and 26-ema is pretty sensitive to small little up or down, which is not good. Will has a lot of false positive (earning opportunity), will change 26-ema to 36-ema. 2017-12-27_18-03-23_trade.log
 
+-12/29/17 Even though I used 36-ema, look like the problem still exists, i.e., if the up is not enough, I may end up losing $$ instead of earning $$. Because using macd cross line to determine the buy-in tell has already some delayed i nthe rise of the price, in which it can already gone up to certain point, and then use macd cross line to determine sell price will has some delay as well. At the end, if the up and down is not big enough, we will lose money because we buy at high price and sell at lower price. Let the conclusion is I will add one more rule to determine if I sell or not, which if the price is at least x% gain (like 1% to 2%) I will sell the stock. 2017-12-28_11-49-10_trade.log
+
