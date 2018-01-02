@@ -31,3 +31,4 @@ python run.py
 
 -12/29/17 Even though I used 36-ema, look like the problem still exists, i.e., if the up is not enough, I may end up losing $$ instead of earning $$. Because using macd cross line to determine the buy-in tell has already some delayed i nthe rise of the price, in which it can already gone up to certain point, and then use macd cross line to determine sell price will has some delay as well. At the end, if the up and down is not big enough, we will lose money because we buy at high price and sell at lower price. Let the conclusion is I will add one more rule to determine if I sell or not, which if the price is at least x% gain (like 1% to 2%) I will sell the stock. 2017-12-28_11-49-10_trade.log
 
+-01/02/18 GG... there is a bug (trade_option) that make me not able to proceed correctly with buy trade option... Redo experiment with seperating possible buy and sell option. 2017-12-29_17-32-25_log.log

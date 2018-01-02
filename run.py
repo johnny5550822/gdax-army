@@ -35,8 +35,9 @@ def main():
     macd_short_n = 12  # default
     macd_long_n = 36  # default
 
-    # trade option
-    trade_option = 3
+    # trade options
+    trade_option_buy = 2
+    trade_option_sell = 3
 
     # Trader
     trader = Trader(api_key=api_key,
@@ -52,7 +53,8 @@ def main():
                     term_n=term_n,
                     macd_short_n=macd_short_n,
                     macd_long_n=macd_long_n,
-                    trade_option=trade_option
+                    trade_option_buy=trade_option_buy,
+                    trade_option_sell=trade_option_sell
                     )
     trader.trade()
 

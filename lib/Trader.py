@@ -14,7 +14,7 @@ class Trader():
                  value_limit=470, percent_remain_limit=0.90, size_limit=0.1,
                  granularity=300, num_buckets=200, term_n=60,
                  macd_short_n=12, macd_long_n=26,
-                 trade_option=1,
+                 trade_option_buy=1, trade_option_sell=1
                  ):
         # setup logger
         time_str = str(get_current_time()).replace(' ', '_')
@@ -64,8 +64,10 @@ class Trader():
                                              time_str)
 
         # trade options
-        self.trade_option = trade_option
-        self.logger.info('Trade Option:%s' % self.trade_option)
+        self.trade_option_buy = trade_option_buy
+        self.trade_option_sell = trade_option_sell
+        self.logger.info('Trade Option:buy(%s),sell(%s)' %
+                         (self.trade_option_buy, self.trade_option_sell))
 
         # log the configuration
         self.logger.info("Initial Account Summary:%s" % self.acct_summary)
@@ -83,7 +85,7 @@ class Trader():
 
         # wait until the pattern favor not to buy (so that we can catch the
         # moment when it is good to buy in the loop).
-        while self.buyStrategier.should_buy(option=self.trade_option):
+        while self.buyStrategier.should_buy(option=self.trade_option_buy):
             self.logger.info('Waiting price<ema to start trading cycle.')
             time.sleep(60)
 
@@ -107,7 +109,7 @@ class Trader():
                             time.sleep(30)  # not overwhelming the api
                             is_bought, buy_order = self._execute_buy_order(
                                 time_limit=60,
-                                trade_option=self.trade_option)
+                                trade_option=self.trade_option_buy)
                             if not is_bought:
                                 self._clean_an_order(buy_order)
                             self.logger.info('Bought?:%s' % is_bought)
@@ -123,7 +125,7 @@ class Trader():
                             is_sold, sell_order = self._execute_sell_order(
                                 order=buy_order,
                                 time_limit=60,
-                                trade_option=self.trade_option)
+                                trade_option=self.trade_option_sell)
                             if not is_sold:
                                 self._clean_an_order(sell_order)
                             self.logger.info('Sold?:%s' % is_sold)
@@ -287,8 +289,9 @@ class Trader():
 
         :params order: the order
         """
-        self.trade_logger.info('trade_option%s\t%s\t%s\t%s\t%s'
-                               % (self.trade_option,
+        self.trade_logger.info('trade_option:buy(%s),sell(%s)\t%s\t%s\t%s\t%s'
+                               % (self.trade_option_buy,
+                                  self.trade_option_sell,
                                   order['product_id'],
                                   order['side'],
                                   order['price'],
