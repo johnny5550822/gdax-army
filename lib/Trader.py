@@ -106,7 +106,7 @@ class Trader():
                     # excute buy stragegy
                     while not is_bought:
                         try:
-                            time.sleep(30)  # not overwhelming the api
+                            time.sleep(20)  # not overwhelming the api
                             is_bought, buy_order = self._execute_buy_order(
                                 time_limit=20,
                                 trade_option=self.trade_option_buy)
@@ -121,7 +121,7 @@ class Trader():
                     # excute sell stragegy
                     while not is_sold:
                         try:
-                            time.sleep(30)  # not overwhelming the api
+                            time.sleep(20)  # not overwhelming the api
                             is_sold, sell_order = self._execute_sell_order(
                                 order=buy_order,
                                 time_limit=20,
