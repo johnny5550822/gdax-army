@@ -108,7 +108,7 @@ class Trader():
                         try:
                             time.sleep(30)  # not overwhelming the api
                             is_bought, buy_order = self._execute_buy_order(
-                                time_limit=60,
+                                time_limit=20,
                                 trade_option=self.trade_option_buy)
                             if not is_bought:
                                 self._clean_an_order(buy_order)
@@ -124,7 +124,7 @@ class Trader():
                             time.sleep(30)  # not overwhelming the api
                             is_sold, sell_order = self._execute_sell_order(
                                 order=buy_order,
-                                time_limit=60,
+                                time_limit=20,
                                 trade_option=self.trade_option_sell)
                             if not is_sold:
                                 self._clean_an_order(sell_order)
@@ -189,6 +189,7 @@ class Trader():
             order = self.army.buy(price=to_decimal_place(price),
                                   size=self.size,
                                   product_id=self.currency)
+            self.logger.info('Current price:%s' % (price))
 
             if self._is_order_placed(order):
                 self.logger.info('Placed a buy order.')
@@ -219,6 +220,7 @@ class Trader():
             sell_order = self.army.sell(price=to_decimal_place(price),
                                         size=self.size,
                                         product_id=self.currency)
+            self.logger.info('Current price:%s' % (price))
 
             if self._is_order_placed(sell_order):
                 self.logger.info('Placed a sell order.')

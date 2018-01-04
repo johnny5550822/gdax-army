@@ -2,11 +2,15 @@
 2018-01-02 15:04:39,416 INFO ---------------New trade---------------
 2018-01-02 21:37:32,831 INFO trade_option:buy(2),sell(3)	LTC-USD	buy	253.43000000	0.01000000
 2018-01-02 21:51:50,933 INFO trade_option:buy(2),sell(3)	LTC-USD	sell	252.69000000	0.01000000
+
 2018-01-02 22:51:25,620 INFO trade_option:buy(2),sell(3)	LTC-USD	buy	255.85000000	0.01000000
 2018-01-03 01:23:19,534 INFO trade_option:buy(2),sell(3)	LTC-USD	sell	248.06000000	0.01000000
+
 2018-01-03 08:01:38,585 INFO trade_option:buy(2),sell(3)	LTC-USD	buy	250.49000000	0.01000000
 2018-01-03 08:13:32,449 INFO trade_option:buy(2),sell(3)	LTC-USD	sell	250.20000000	0.01000000
+
 2018-01-03 08:28:11,255 INFO trade_option:buy(2),sell(3)	LTC-USD	buy	250.59000000	0.01000000
 2018-01-03 08:36:46,250 INFO trade_option:buy(2),sell(3)	LTC-USD	sell	248.42000000	0.01000000
+
 2018-01-03 08:44:11,691 INFO trade_option:buy(2),sell(3)	LTC-USD	buy	249.49000000	0.01000000
 2018-01-03 08:54:24,459 INFO trade_option:buy(2),sell(3)	LTC-USD	sell	248.21000000	0.01000000

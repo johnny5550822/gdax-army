@@ -33,7 +33,7 @@ def main():
     # global of the moving average, i.e., the smallest, the more senstive
     # to the latest price
     macd_short_n = 12  # default
-    macd_long_n = 36  # default
+    macd_long_n = 26  # default
 
     # trade options
     trade_option_buy = 2
