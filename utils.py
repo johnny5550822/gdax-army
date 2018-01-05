@@ -164,6 +164,21 @@ class GdaxArmy():
         info = self.client.get_product_ticker(product_id=currency)
         return float(info['price'])
     
+    def get_buying_orders(self, currency='LTC-USD',level=1,n_orders=10):
+        """
+        Get the n most recent buying orders in the order book.
+        """
+        info = self.client.get_product_order_book(currency, level)
+
+        return [float(i[0]) for i in info['bids'][:n_orders]]
+    
+    def get_selling_orders(self, currency='LTC-USD',level=1,n_orders=10):
+        """
+        Get the n most recent buying orders in the order book.
+        """
+        info = self.client.get_product_order_book(currency, level)
+
+        return [float(i[0]) for i in info['asks'][:n_orders]]
     
 
 class GDAXRequestAuth(AuthBase):
