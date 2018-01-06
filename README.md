@@ -34,3 +34,6 @@ python run.py
 -01/02/18 GG... there is a bug (trade_option) that make me not able to proceed correctly with buy trade option... Redo experiment with seperating possible buy and sell option. 2017-12-29_17-32-25_log.log
 
 -01/03/18 Hmm... a lot of buy-in and buy-out and then seem like I need to make the long ema from 36 to 26. Also add more log to look at the actual price fluatation. 2018-01-02_15-04-39_log.log
+
+
+-01/06/18 SOmetime we will accendially placed >1 buy orders... I checked and found that there can be "No json" object detection in the buy order while loop, in which we have exception to handle it. Yet, the placed buy order will lose track and we will place another buy order. I debug it, i.e., cancell all orders at the beginning of while loop for buy/sell. 2018-01-04_18-11-01_log.log
