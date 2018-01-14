@@ -352,15 +352,16 @@ class Trader():
         :params pause_time: pausing time(2) before calling the api again
         :params time_limit: maximum time(2) to wait
         """
-        while not self._is_order_filled(id=id):
+        while time_limit > 0:
             if (time_limit % 10 == 0):
                 self.logger.info(
                     'Order complete remaining time:%s' % time_limit)
-
             time.sleep(pause_time)  # pause for x second
-            time_limit -= pause_time
-            if time_limit <= 0:
-                return False
 
-        self.logger.info("Completed order at:%ss" % time_limit)
-        return True
+            if self._is_order_filled(id=id):
+                self.logger.info("Completed order at:%ss" % time_limit)
+                return True
+
+            time_limit -= pause_time
+
+        return False
