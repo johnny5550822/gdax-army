@@ -13,14 +13,14 @@ def main():
 
     # currency and coin size
     interest_currency = ['LTC', 'USD']  # interested currency
-    size = 0.01  # coin size per trade
+    size = 0.1  # coin size per trade
     currency = 'LTC-USD'  # the currency for trading
 
     # initial check parameter, for safety purpose
     value_limit = 470  # total amt of value in account limit
     percent_remain_limit = 0.90  # percentage of
     # value remained limit
-    size_limit = 0.1  # coin size limit
+    size_limit = 1  # coin size limit
 
     # moving average parameters
     granularity = 3600  # e.g., 3600=an hour, some values are
