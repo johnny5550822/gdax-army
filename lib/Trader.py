@@ -85,9 +85,9 @@ class Trader():
 
         # wait until the pattern favor not to buy (so that we can catch the
         # moment when it is good to buy in the loop).
-        #while self.buyStrategier.should_buy(option=self.trade_option_buy):
-        #    self.logger.info('Waiting price<ema to start trading cycle.')
-        #    time.sleep(60)
+        while self.buyStrategier.should_buy(option=self.trade_option_buy):
+            self.logger.info('Waiting price<ema to start trading cycle.')
+            time.sleep(60)
 
         # loop
         while True:
