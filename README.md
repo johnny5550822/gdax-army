@@ -1,16 +1,35 @@
 # gdax-army
-A bot to trade on gdax api
+A good-to-go library to provide automatic trading bot to trade $-to-coin on GDAX using [gdax-python API](https://github.com/danpaquin/gdax-python)
 
-# To run
-log.log will store all the outputs from the script.
+Maintainers - [Johnny Ho](https://github.com/johnny5550822), [Panayiotis Petousis](https://github.com/panas89)
+
+## Warming
+This repository is for non-commercial use and for research purpose. Please use it in caution and it DOES NOT guranttee to earn profit. 
+
+## Contributing
+Please feel free to [pull requests](https://github.com/johnny5550822/gdax-army/pulls).
+
+## Code Infrastructure
+```bash
+run.py - the main for all parameters setup.
+lib/Trader.py - the core class to handle trading logic.
+lib/Strategier.py - the parent class to provides functionalities for buy & sell.
+lib/BuyStrategier.py - the child class to provide specific buy strategy.
+lib/SellStrategier.py - the child class to provide specific sell strategy.
+lib/GdaxArmy.py - the API class for gdax-python, and GDAX authentication.
+lib/utils.py - utilities functions.
+```
+
+## To run
+logs will be stored in /logs.
 ```bash
 python run.py
 ```
 
-# Assumptions
-- We assume one-buy-one-sell trading cycle. That is, after one buy, we sell to complete the cycle.
+## Trading Assumptions
+- We provide a good-to-go solution (with buy & sell strategies) for trading in GDAX. We assume one-buy-one-sell trading cycle. That is, after one buy, we sell to complete a cycle.
 
-# Repo Notes
+## Repository Notes
 - We should only keep one single straight global/master history (i.e., we can branch in local, but not in global/master.)
 - Please follow as close as pep-0008 for coding (https://www.python.org/dev/peps/pep-0008/), such as having at most 79 characters in a line
 - REMEMBER to remove your credentials in code and online everytime before you push to master branch. 
@@ -22,6 +41,10 @@ python run.py
 - If you are using subl, please auto format it following PEP-8 standard
     - https://packagecontrol.io/packages/Python%20PEP8%20Autoformat
 - When you write tests in test, please follow the convention in sampleUnitTest.py. Also, please name the test python file accordingly. 
+
+## License
+The MIT License (MIT)
+
 
 # Trading Strategy Notes
 - 12/27/17 If we buy at high price (e.g., $282) and using the macd rule. Let say the price suddenly go down a lot, so the ema-12 and ema-26 will be lowering. Even we use the rule ema-12 < ema-26, we cannot sell the stock because the selling rule is 'return (short_macd_ema < long_macd_ema) and (price > buy_price)', so I have to remove (price > buy_price) in order to sell the stock. But then, hmm..., how do we handle this situation, like we buy in high price following macd rule, and then the price drops. 
