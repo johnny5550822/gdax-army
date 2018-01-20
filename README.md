@@ -10,14 +10,14 @@ This repository is for non-commercial use and for research purpose. Please use i
 Please feel free to [pull requests](https://github.com/johnny5550822/gdax-army/pulls).
 
 #### Pull Request Guidelines
-- Please follow as close as [pep-0008](https://www.python.org/dev/peps/pep-0008/) coding guidelines, such as having at most 79 characters in a line
+- Please follow as close as [pep-0008](https://www.python.org/dev/peps/pep-0008/) coding guidelines, such as having at most 79 characters in a line.
 - REMEMBER to remove your credentials in code everytime before you push to master branch. 
 - Code in pythonic way. 
 - We follow KISS (Keep it simple, stupid!) for the design principle, and OOP for design pattern.
 - If you are using subl, please auto format it following PEP-8 standard, [tutorial](https://packagecontrol.io/packages/Python%20PEP8%20Autoformat).
 - When you write tests, please follow the convention in sampleUnitTest.py.  
 
-## Code Infrastructure
+## Code Organization
 ```bash
 run.py - the main for all parameters setup.
 lib/Trader.py - the core class to handle trading logic.
