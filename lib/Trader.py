@@ -94,51 +94,50 @@ class Trader():
             self.logger.info('Start trading loop......')
 
             # security check to make sure it is safe to start investment
-            try:
-                if self._pass_initial_check():
-                    # initial parameters
-                    is_bought = False
-                    is_sold = False
+            if self._pass_initial_check():
+                # initial parameters
+                is_bought = False
+                is_sold = False
 
-                    # excute buy stragegy
-                    while not is_bought:
-                        # 01/06/17 sometime there will be an error "No JSON
-                        # object could be decoded" from gdax while excuting the buy order. At the end of the day, we will
-                        # accendentally place >1 buy order... need to cleann
-                        # all orders buy buy order is excuted. See
-                        # 2018-01-04.log
-                        self._clean_all_orders()
+                # excute buy stragegy
+                while not is_bought:
+                    # 01/06/17 sometime there will be an error "No JSON
+                    # object could be decoded" from gdax while excuting the buy order. At the end of the day, we will
+                    # accendentally place >1 buy order... need to cleann
+                    # all orders buy buy order is excuted. See
+                    # 2018-01-04.log
+                    self._clean_all_orders()
 
-                        try:
-                            time.sleep(20)  # not overwhelming the api
-                            is_bought, buy_order = self._execute_buy_order(
-                                time_limit=20,
-                                trade_option=self.trade_option_buy)
-                            self.logger.info('Bought?:%s' % is_bought)
-                        except Exception, e:
-                            self.logger.info("Exception:%s" % e)
-                    self.logger.info('Bought order:%s' % buy_order)
-                    self._log_trade(buy_order)
+                    try:
+                        time.sleep(20)  # not overwhelming the api
+                        is_bought, buy_order = self._execute_buy_order(
+                            time_limit=20,
+                            trade_option=self.trade_option_buy)
+                        self.logger.info('Bought?:%s' % is_bought)
+                    except Exception, e:
+                        self.logger.info("Exception:%s" % e)
+                self.logger.info('Bought order:%s' % buy_order)
+                self._log_trade(buy_order)
+                self._log_trade('\n')
 
-                    # excute sell stragegy
-                    while not is_sold:
-                        # clean up all orders
-                        self._clean_all_orders()
+                # excute sell stragegy
+                while not is_sold:
+                    # clean up all orders
+                    self._clean_all_orders()
 
-                        try:
-                            time.sleep(20)  # not overwhelming the api
-                            is_sold, sell_order = self._execute_sell_order(
-                                order=buy_order,
-                                time_limit=20,
-                                trade_option=self.trade_option_sell)
-                            self.logger.info('Sold?:%s' % is_sold)
-                        except Exception, e:
-                            self.logger.info("Exception:%s" % e)
-                    self.logger.info('Sold order:%s' % sell_order)
-                    self._log_trade(sell_order)
+                    try:
+                        time.sleep(20)  # not overwhelming the api
+                        is_sold, sell_order = self._execute_sell_order(
+                            order=buy_order,
+                            time_limit=20,
+                            trade_option=self.trade_option_sell)
+                        self.logger.info('Sold?:%s' % is_sold)
+                    except Exception, e:
+                        self.logger.info("Exception:%s" % e)
+                self.logger.info('Sold order:%s' % sell_order)
+                self._log_trade(sell_order)
+                self._log_trade('\n')
 
-            except Exception, e:
-                self.logger.info("Exception:%s" % e)
 
     def _clean_all_orders(self):
         """
