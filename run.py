@@ -17,7 +17,7 @@ def main():
     currency = 'LTC-USD'  # the currency for trading
 
     # initial check parameter, for safety purpose
-    value_limit = 470  # total amt of value in account limit
+    value_limit = 400  # total amt of value in account limit
     percent_remain_limit = 0.90  # percentage of
     # value remained limit
     size_limit = 1  # coin size limit

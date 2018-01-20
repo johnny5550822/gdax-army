@@ -91,6 +91,12 @@ class GdaxArmy():
         """
         return self.auth_client.cancel_order(id)
 
+    def cancel_all_orders(self,id, product='LTC-USD'):
+        """
+        Cancel all the orders of a product
+        """
+        return self.auth_client.cancel_all(product)
+
     def get_trade_trends(self, currency='LTC-USD', granularity=3600,
                          num_buckets=200
                          ):

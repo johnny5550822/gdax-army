@@ -7,6 +7,9 @@ log.log will store all the outputs from the script.
 python run.py
 ```
 
+# Assumptions
+- We assume one-buy-one-sell trading cycle. That is, after one buy, we sell to complete the cycle.
+
 # Repo Notes
 - We should only keep one single straight global/master history (i.e., we can branch in local, but not in global/master.)
 - Please follow as close as pep-0008 for coding (https://www.python.org/dev/peps/pep-0008/), such as having at most 79 characters in a line

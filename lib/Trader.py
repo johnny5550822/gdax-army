@@ -106,7 +106,7 @@ class Trader():
                     # accendentally place >1 buy order... need to cleann
                     # all orders buy buy order is excuted. See
                     # 2018-01-04.log
-                    self._clean_all_orders()
+                    self._clean_all_orders(product=self.currency)
 
                     try:
                         time.sleep(20)  # not overwhelming the api
@@ -123,7 +123,7 @@ class Trader():
                 # excute sell stragegy
                 while not is_sold:
                     # clean up all orders
-                    self._clean_all_orders()
+                    self._clean_all_orders(product=self.currency)
 
                     try:
                         time.sleep(20)  # not overwhelming the api
@@ -138,8 +138,7 @@ class Trader():
                 self._log_trade(sell_order)
                 self._log_trade('\n')
 
-
-    def _clean_all_orders(self):
+    def _clean_all_orders(self, product='LTC-USD'):
         """
         Clean up the orders. 
 
@@ -147,13 +146,7 @@ class Trader():
         <=1 existing order.
         """
         self.logger.info('Cleanning all orders......')
-
-        orders = self.army.get_orders()
-        orders = orders[0]
-
-        if orders:
-            for order in orders:
-                self.army.cancel_order(order['id'])
+        self.army.cancel_all_orders(product=product)
 
     def _clean_an_order(self, order):
         """
@@ -174,7 +167,7 @@ class Trader():
             product_id=self.currency, level=2)
         return(float(order_book[order_type][pos][0]))
 
-    def _execute_buy_order(self, pause_time=2, time_limit=600,
+    def _execute_buy_order(self, pause_time=4, time_limit=600,
                            trade_option=1):
         """
         Stragegy for a buying order.
@@ -200,7 +193,7 @@ class Trader():
                 return is_bought, order
         return False, None
 
-    def _execute_sell_order(self, order, pause_time=2, time_limit=600,
+    def _execute_sell_order(self, order, pause_time=4, time_limit=600,
                             trade_option=1):
         """
         Stragegy for a selling order. If after the time limit and the LTC is 
@@ -274,7 +267,7 @@ class Trader():
         :params id: the id of an order
         """
         order = self.army.get_order(id)
-        if order['status'] == 'done':
+        if order and ('status' in order) and order['status'] == 'done':
             return True
         else:
             return False
