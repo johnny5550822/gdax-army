@@ -1,5 +1,5 @@
 # gdax-army
-A good-to-go library to provide automatic trading bot to trade $-to-coin on GDAX using [gdax-python API](https://github.com/danpaquin/gdax-python)
+A good-to-go library to provide automatic trading bot to trade $-to-coin on GDAX using [gdax-python API](https://github.com/danpaquin/gdax-python).
 
 Maintainers - [Johnny Ho](https://github.com/johnny5550822), [Panayiotis Petousis](https://github.com/panas89)
 
@@ -18,29 +18,28 @@ lib/BuyStrategier.py - the child class to provide specific buy strategy.
 lib/SellStrategier.py - the child class to provide specific sell strategy.
 lib/GdaxArmy.py - the API class for gdax-python, and GDAX authentication.
 lib/utils.py - utilities functions.
+test/ - unit tests.
+logs/ - [DATE]_log.log for comprehensive log and [DATE]_trade.log for precise transaction.
+ext/ - experimental python notebooks.
 ```
 
 ## To run
-logs will be stored in /logs.
 ```bash
 python run.py
 ```
 
-## Trading Assumptions
-- We provide a good-to-go solution (with buy & sell strategies) for trading in GDAX. We assume one-buy-one-sell trading cycle. That is, after one buy, we sell to complete a cycle.
+## Trading Assumption
+- We provided a good-to-go solution (with buy & sell strategies) for simple trading in GDAX. We assume one-buy-one-sell trading cycle. That is, after one buy, we sell to complete a cycle.
 
-## Repository Notes
-- We should only keep one single straight global/master history (i.e., we can branch in local, but not in global/master.)
-- Please follow as close as pep-0008 for coding (https://www.python.org/dev/peps/pep-0008/), such as having at most 79 characters in a line
-- REMEMBER to remove your credentials in code and online everytime before you push to master branch. 
+## Pull Request Guidelines
+- We keep one single straight global/master history (i.e., we can branch in local, but not in global/master.)
+- Please follow as close as [pep-0008](https://www.python.org/dev/peps/pep-0008/) coding guidelines, such as having at most 79 characters in a line
+- REMEMBER to remove your credentials in code everytime before you push to master branch. 
 - Code in pythonic way. 
 - We follow KISS (Keep it simple, stupid!) for the design principle, and OOP for design pattern.
-- Try to look for a good design pattern, e.g., facade 
-	- https://www.toptal.com/python/python-design-patterns
-	- https://github.com/faif/python-patterns
-- If you are using subl, please auto format it following PEP-8 standard
-    - https://packagecontrol.io/packages/Python%20PEP8%20Autoformat
-- When you write tests in test, please follow the convention in sampleUnitTest.py. Also, please name the test python file accordingly. 
+- Try to look for a good design pattern, e.g., [facade](https://github.com/faif/python-patterns).
+- If you are using subl, please auto format it following PEP-8 standard, [tutorial](https://packagecontrol.io/packages/Python%20PEP8%20Autoformat).
+- When you write tests, please follow the convention in sampleUnitTest.py.  
 
 ## License
 The MIT License (MIT)
