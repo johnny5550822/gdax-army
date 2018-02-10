@@ -1,5 +1,5 @@
 # gdax-army
-A good-to-go library to provide automatic trading bot to trade $-to-coin on GDAX using [gdax-python API](https://github.com/danpaquin/gdax-python).
+A repository to provide automatic trading bot to trade $-to-coin on GDAX using [gdax-python API](https://github.com/danpaquin/gdax-python).
 
 Maintainers - [Johnny Ho](https://github.com/johnny5550822), [Panayiotis Petousis](https://github.com/panas89)
 
