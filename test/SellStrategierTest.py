@@ -22,10 +22,10 @@ class SellStrategierTest(unittest.TestCase):
         time_str = str(time.asctime(time.localtime(time.time()))
                        ).replace(' ', '_')
 
-        # Please hide if not in testing
-        api_key = '03c1c0573c80175f1b102b58e4e6914d'
-        secret_key = 'KUhIQcbPNK+X+Lj44VEUcO1kTxQHuI96QbC6L9n3XNSzI9pdO1sSBKoYBgOk3+XESYl/xGcphhG4ZuhwCZ9X2w=='
-        passphrase = 'upliordo8g8kqf7kesl9pb9'
+        # Please hide if not in testing. PASTE YOUR KEYS HERE.
+        api_key = ''
+        secret_key = ''
+        passphrase = ''
 
         # parameters
         interest_currency = ['LTC', 'USD']
