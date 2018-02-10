@@ -4,7 +4,7 @@ A repository to provide automatic trading bot to trade $-to-coin on GDAX using [
 Maintainers - [Johnny Ho](https://github.com/johnny5550822), [Panayiotis Petousis](https://github.com/panas89)
 
 ## Warming
-This repository is for non-commercial use and for research purpose. Please use it in caution and it DOES NOT guranttee to earn profit. 
+This repository is for non-commercial use and for research purpose. Please use it in caution and it DOES NOT guranttee to earn profit. Please report any bugs.
 
 ## Contributing
 Please feel free to [pull requests](https://github.com/johnny5550822/gdax-army/pulls).
