@@ -32,6 +32,7 @@ ext/ - experimental python notebooks.
 ```
 
 ## To run
+Input your gdax API keys in run.py [lines 10-12](https://github.com/johnny5550822/gdax-army/blob/b310de96fb47ce526a39498a0321c763511f441f/run.py#L10). And then do:
 ```bash
 python run.py
 ```
