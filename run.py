@@ -6,10 +6,10 @@ from lib import Trader
 
 
 def main():
-    # account info
-    api_key = 'ae516cd16c6adf1972ffe64f224438b7'
-    secret_key = 'kWhPPB1cdR5vmpnO5yW3qFiVCdmS1oijiYiRcT2bjib/cL/tU/zqrNzgwiTf6LYe4+I2pooQH32idacsZR3dMg=='
-    passphrase = 'aayg7crkpv5s4rc3aoa9py14i'
+    # account info. PASTE YOUR KEYS HERE.
+    api_key = ''
+    secret_key = ''
+    passphrase = ''
 
     # currency and coin size
     interest_currency = ['LTC', 'USD']  # interested currency
